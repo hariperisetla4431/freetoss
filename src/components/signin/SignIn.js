@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import "./SignIn.css";
-import {Button } from 'react-bootstrap'
+import {Button, Row, Col } from 'react-bootstrap'
 import Dashboard from '../dashboard/dashboard';
 import {Link, Redirect, useHistory, withRouter} from 'react-router-dom';
 import firebase, { db, auth } from '../../services/firebase';
@@ -29,8 +29,8 @@ class Login extends React.Component {
 
     firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((result) => {
       const user = result.user;
-      console.log(user)
-
+      console.log(user);
+      return <Redirect to="/" />
       
 
     }).catch(function(error) {
@@ -75,13 +75,15 @@ class Login extends React.Component {
 
       <div className="container">
         
+        
+
         <div className="col-md-6 mx-auto test-center">
           <div className="header-title">
             <h1 className="wv-heading--title">
-              FreeToss8 Login!
+              Welcome to FreeToss8!
             </h1>
             <h4 className="wv-heading--subtitle">
-              Please login with your FreeToss8 account or Google Account.
+              Please login to continue.
             </h4>
           </div>
         </div>
@@ -123,14 +125,8 @@ class Login extends React.Component {
   <span className="google-button__text">Sign in with Google</span>
 </Button>
    
-<div className="col-md-12 ">
-                     <div className="login-or">
-                        <hr className="hr-or" />
-                        <span className="span-or">or</span>
-                     </div>
-                  </div>
 
-                <Button type="submit" onClick={this.handleClick} className="btn btn-primary btn-block" >Sign Up</Button>
+
                 
                 <p className="small mt-3 forgot-password text-right">
                     Forgot <a href="#">password?</a>
@@ -142,7 +138,7 @@ class Login extends React.Component {
             </div>
          </div>
       </div>
-  
+    
      
 
             </div>

@@ -5,7 +5,7 @@ import { LinkContainer } from "react-router-bootstrap";
 // import Navbar from 'react-bootstrap/Navbar'
 // import NavDropdown from 'react-bootstrap/Navbar';
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem, Form, FormControl } from 'react-bootstrap';
-
+import "./navbar.css"
 
 
 function NavBar(props){
@@ -13,7 +13,7 @@ function NavBar(props){
       <div>
         
 
-<Navbar bg="dark" variant="dark" expand="lg">
+<Navbar bg="dark" variant="dark" expand="lg" >
     <LinkContainer to="/login">
   <Navbar.Brand href="#home">FreeToss8</Navbar.Brand>
   </LinkContainer>

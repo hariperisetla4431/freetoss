@@ -1,21 +1,73 @@
 import React from 'react';
 import {NavLink, Redirect} from 'react-router-dom';
-import Button from 'react-bootstrap/Button';
+import { Button, Row, Col, Container } from 'react-bootstrap';
 import FileUpload from '../fileupload/fileupload';
 import Image from 'react-bootstrap/Image'
-import Col from 'react-bootstrap/Col'
+import "./dashboard.css";
+import FileRetrieval from '../fileRetrive/fileRetrieval';
 
-function Dashboard(props){
+class Dashboard extends React.Component {
 
-    
+    constructor(props){
+      super(props);
+      this.state = {
+        onUpload: false,
+        onFolders: false
+      }
+    }
 
+
+    toggleUpload = () => {
+      this.setState({
+        onUpload: !this.state.onUpload
+      })
+    }
+
+    toggleFolders = () => {
+      this.setState({
+        onFolders: !this.state.onFolders
+      })
+    }
+
+    render() {
     return (
       <div> 
+        <Row>
+          <Col xs={12}>
+          <h1> Welcome {this.props.user.displayName}</h1>
+        <h3>{this.props.user.email}</h3>
+        <Button onClick= {this.props.signout} >Log Out</Button>
+        </Col>
+        
+        </Row>
 
-        <h1>Welcome Home</h1>
-        <h3>{props.user.email}</h3>
+        <br />
+        <br />
+<Row>
+  <Col> 
+        <Button onClick= {this.toggleUpload} >File Upload</Button>
+        <br /><br />
+        <Button onClick={this.toggleFolders} >My Files</Button>
+        </Col>
+        </Row>
+      { this.state.onUpload && 
+        <FileUpload user={this.props.user}/>
+      }
 
+        
 
+      
+        
+        
+        { this.state.onFolders && 
+        <FileRetrieval user={this.props.user}/>
+      }
+        
+        
+
+      
+
+        
       </div>
 
 
@@ -46,5 +98,6 @@ function Dashboard(props){
       // </div>
     )
   }
+}
 
   export default Dashboard;

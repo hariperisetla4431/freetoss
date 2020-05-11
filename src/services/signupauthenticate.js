@@ -15,15 +15,16 @@ function SignUpAuthenticate(props){
         
 
 
-
-                     
+{props.user &&
          <Home  user={props.user} />
+}
+                     
+
             
-          
+          {!props.user &&
+                      <SignUp signinGoogle= {props.signinGoogle} signin = {props.signin} />
 
-
-          <SignUp signinGoogle= {props.signinGoogle} signin = {props.signin} />
-          
+          }          
 
 
 

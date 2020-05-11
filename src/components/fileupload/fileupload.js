@@ -1,5 +1,5 @@
 import React, {Component } from 'react';
-import {storage} from '../../services/firebase';
+import {storage, db} from '../../services/firebase';
 import "./fileupload.css";
 
 import Form from 'react-bootstrap/Form'
@@ -23,6 +23,8 @@ class FileUpload extends Component {
       progress: 0
     };
   }
+
+
 
 
   // handleFoldername(e) {
@@ -130,7 +132,7 @@ class FileUpload extends Component {
           </div>
         </div>
 
-        <Form.Group as={Col} controlId="formGridState">
+        <Form.Group  controlId="formGridState">
       <Form.Label>State</Form.Label>
       <Form.Control as="select" custom onChange={(e) => this.setState({ value: e.target.value })}>
       
@@ -149,12 +151,12 @@ class FileUpload extends Component {
         </Button>
         <br />
         <br />
-        <img
+        {/* <img
           src={this.state.url || "https://via.placeholder.com/400x300"}
           alt="Uploaded Images"
           height="300"
           width="400"
-        />
+        /> */}
       </div>
     );
   }

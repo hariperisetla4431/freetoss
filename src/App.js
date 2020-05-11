@@ -12,6 +12,9 @@ import LoginAuthenticate from './services/authenticate';
 import SignUpAuthenticate from './services/signupauthenticate';
 import {useHistory as history} from 'react-router-dom';
 
+import SideBar from './components/navbar/sideBar';
+import {Container, Row, Col, Card, Form, Button } from "react-bootstrap";
+
 // props is data in a component that does NOT change
 // state is data in a component that does change
 
@@ -102,19 +105,36 @@ class App extends React.Component {
         
         <Router history={history}>
           
-          
-        <NavBar signout={this.signOutUser} user={this.state.user} />
+        {/* <NavBar signout={this.signOutUser} user={this.state.user} />
+        <Container fluid>
+                <Row>
+                    <Col xs={2} id="sidebar-wrapper">      
+                      <SideBar />
+                    </Col>
+                    <Col  xs={10} id="page-content-wrapper">
+                        this is a test
+                    </Col> 
+                </Row>
+
+            </Container> */}
+
+
+        
         <Switch>
-          <Route exact path="/" component={() => <Home user = {this.state.user} /> } />
+          <Route exact path="/" component={() => <LoginAuthenticate signinGoogle = {this.signInUserGoogle}
+                              signout={this.signOutUser}
+                              user={this.state.user} 
+                              
+                              /> } />
           <Route path="/login" component={() => 
                 <LoginAuthenticate signinGoogle = {this.signInUserGoogle}
-                              
+                signout={this.signOutUser}
                               user={this.state.user} 
                               
                               />} />
+          <Route path="/signup" component={() => <SignUpAuthenticate user={this.state.user} />} signout={this.signOutUser}/>
 
-          <Route path="/dashboard" component={() => <Dashboard user = {this.state.user} />} />
-          <Route path="/signup" component={() => <SignUpAuthenticate user={this.state.user} />} />
+          <Route path="/dashboard" component={() => <Home user = {this.state.user} />} />
           </Switch>
           
           
