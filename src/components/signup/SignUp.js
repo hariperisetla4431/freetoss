@@ -1,6 +1,6 @@
 import React from 'react';
 import "./SignUp.css";
-import {Button } from 'react-bootstrap'
+// import {Button } from 'react-bootstrap'
 import Dashboard from '../dashboard/dashboard';
 import {Link, Redirect, useHistory, withRouter} from 'react-router-dom';
 import firebase, { db, auth } from '../../services/firebase';
@@ -45,12 +45,32 @@ class SignUp extends React.Component {
 signUpUser = (e) => {
   e.preventDefault();
 
-  firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).catch(function(error) {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    alert(errorMessage);
-    // ...
+  // firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then((userCredentials)=> {
+  // if(userCredentials.user){
+  //   userCredentials.user.updateProfile({
+  //     displayName: 'Frank S. Andrew'
+  //   }).catch(function(error) {
+  //   // Handle Errors here.
+
+  //   var errorCode = error.code;
+  //   var errorMessage = error.message;
+  //   alert(errorMessage);
+    
+  // });
+  // }
+  
+  firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
+  .then((userCredentials)=>{
+      if(userCredentials.user){
+        userCredentials.user.updateProfile({
+          displayName: 'Frank S. Andrew'
+        }).then((s)=> {
+          this.props.navigation.navigate('Account');
+        })
+      }
+  })
+  .catch(function(error) {
+    alert(error.message);
   });
 }
 
@@ -114,8 +134,8 @@ handleClick(e) {
   <span className="google-button__text">Sign in with Google</span>
 </Button> */}
    
-                <Button type="submit" onClick={this.signUpUser} className="btn btn-primary btn-block" >Sign Up</Button>
-                <Button type="submit" onClick={this.handleClick} className="btn btn-primary btn-block" >Login</Button>
+                <a type="submit" onClick={this.signUpUser} className="btn btn-primary btn-block" >Sign Up</a>
+                <a type="submit" onClick={this.handleClick} className="btn btn-primary btn-block" >Login</a>
                 
 
                 <p className="forgot-password text-right">

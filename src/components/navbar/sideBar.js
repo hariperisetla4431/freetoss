@@ -1,37 +1,49 @@
-import "./navbar.css";
-import React from "react";
-import {Navbar, Nav} from "react-bootstrap";
-import {withRouter} from 'react-router-dom'
+import React, { Component } from "react";
+import M from "materialize-css/dist/js/materialize.min.js";
+import { BrowserRouter, Route } from "react-router-dom";
+import "materialize-css/dist/css/materialize.min.css";
 
-const Side = props => {
+class Sidebar extends Component {
+    componentDidMount() {
+        var elem = document.querySelector(".sidenav");
+        var instance = M.Sidenav.init(elem, {
+            edge: "left",
+            inDuration: 250
+        });
+    }
 
-
-    return (
-        <div>
-
-            <Navbar className="col-md-12 d-none d-md-block bg-light sidebar"
-            activeKey="/home"
-            onSelect={selectedKey => alert(`selected ${selectedKey}`)}
-            >
-                <div className="sidebar-sticky"></div>
-            <Nav.Item>
-                <Nav.Link href="/home">Active</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-                <Nav.Link eventKey="link-1">Link</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-                <Nav.Link eventKey="link-2">Link</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-                <Nav.Link eventKey="disabled" disabled>
-                Disabled
-                </Nav.Link>
-            </Nav.Item>
-            </Navbar>
-
-        </div>
+    render() {
+        return (
+            <div>
+                <ul id="slide-out" className="sidenav">
+                    <li />
+                    <li>
+                        <a href="#!">
+                            <i className="material-icons">cloud</i>First Link
+                            With Icon
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#!">Second Link</a>
+                    </li>
+                    <li>
+                        <div className="divider" />
+                    </li>
+                    <li>
+                        <a className="subheader">Subheader</a>
+                    </li>
+                    <li>
+                        <a className="waves-effect" href="#!">
+                            Third Link With Waves
+                        </a>
+                    </li>
+                </ul>
+                <a href="#" data-target="slide-out" className="sidenav-trigger">
+                    <i className="material-icons">menu</i>
+                </a>
+            </div>
         );
-  };
-  const Sidebar = withRouter(Side);
-  export default Sidebar
+    }
+}
+
+export default Sidebar;

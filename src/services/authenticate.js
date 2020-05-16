@@ -16,9 +16,9 @@ function LoginAuthenticate(props){
 
      {props.user &&
      
-     <div>      
+          
      <Home  user={props.user} signout={props.signout}/>
-     </div>
+     
      }
                
           

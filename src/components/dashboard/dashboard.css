@@ -1,3 +1,37 @@
 .dashboard-title {
     padding: 50px;
 }
+
+.addFiles {
+    padding: 20px;
+    font-size: 20rem;
+    color: rgb(56, 132, 194);
+}
+
+.addFiles:hover{
+    color: rgb(59, 101, 190);
+}
+
+.plus {
+    display:block;
+    width:50px;
+    height:50px;
+    
+    background:
+      linear-gradient(#fff,#fff),
+      linear-gradient(#fff,#fff),
+      #000;
+    background-position:center;
+    background-size: 50% 2px,2px 50%; /*thickness = 2px, length = 50% (25px)*/
+    background-repeat:no-repeat;
+
+  }
+
+  .radius {
+    border-radius:50%;
+  }
+ 
+  .vl {
+     border-left: 6px solid green;
+      height: 500px;
+  }

@@ -13,7 +13,7 @@ import SignUpAuthenticate from './services/signupauthenticate';
 import {useHistory as history} from 'react-router-dom';
 
 import SideBar from './components/navbar/sideBar';
-import {Container, Row, Col, Card, Form, Button } from "react-bootstrap";
+// import {Container, Row, Col, Card, Form, Button } from "react-bootstrap";
 
 // props is data in a component that does NOT change
 // state is data in a component that does change

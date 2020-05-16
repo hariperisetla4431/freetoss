@@ -1,10 +1,13 @@
 import React from 'react';
 import {NavLink, Redirect} from 'react-router-dom';
-import { Button, Row, Col, Container } from 'react-bootstrap';
+// import { Button, Row, Col, Container, Card, Form } from 'react-bootstrap';
 import FileUpload from '../fileupload/fileupload';
-import Image from 'react-bootstrap/Image'
 import "./dashboard.css";
-import FileRetrieval from '../fileRetrive/fileRetrieval';
+// import FileRetrieval from '../fileRetrive/fileRetrieval';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheckSquare, faFolderPlus } from '@fortawesome/fontawesome-free-solid'
+import 'materialize-css/dist/css/materialize.min.css'
+import MyFiles from '../../img/my-files-01.png'
 
 class Dashboard extends React.Component {
 
@@ -31,44 +34,83 @@ class Dashboard extends React.Component {
 
     render() {
     return (
-      <div> 
-        <Row>
-          <Col xs={12}>
-          <h1> Welcome {this.props.user.displayName}</h1>
-        <h3>{this.props.user.email}</h3>
-        <Button onClick= {this.props.signout} >Log Out</Button>
-        </Col>
-        
-        </Row>
+      <div className="container">
+      <div className="row">
 
-        <br />
+        {/* <Container> 
+        <Row>
+          <Col xs={12}> */}
+          
+
+          
+
+        {/* <h3>{this.props.user.email}</h3> */}
+        {/* <Button onClick= {this.props.signout} >Log Out</Button> */}
+        {/* </Col>
+        <Col xs={12} align="center"> */}
+        
+           {/* <div style={{display: 'block'}} className="plus radius"> */}
+           {/* <FontAwesomeIcon className="addFiles"  icon="plus-circle" size="9x"    />
+    */}
+
+
+        {/* <input style={{ size: '20rem', display: 'none'}} type="file" onChange={this.fileChangedHandler}  / >
+     </div> */}
+
+
+
+
+    
+
+    {/* <i className="fas fa-plus"></i> */}
+
+          
+        {/* </Col>
+        </Row>
+        </Container> */}
+        
+        {/* <br />
         <br />
 <Row>
-  <Col> 
-        <Button onClick= {this.toggleUpload} >File Upload</Button>
+
+  <Col>  */}
+  
+     
+        {/* <Button onClick= {this.toggleUpload} >File Upload</Button>
         <br /><br />
-        <Button onClick={this.toggleFolders} >My Files</Button>
-        </Col>
-        </Row>
-      { this.state.onUpload && 
-        <FileUpload user={this.props.user}/>
-      }
+        <Button onClick={this.toggleFolders} >My Files</Button> */}
+        {/* </Col>
+        </Row> */}
+      
+       
+      
 
         
 
       
         
-        
+{/*         
         { this.state.onFolders && 
         <FileRetrieval user={this.props.user}/>
-      }
+      } */}
         
         
+      <div className="col s12">
+        <h1 style={{ padding: "20px"}}> Welcome {this.props.user.displayName}</h1>
+        
+        </div>
+      <div className="col s12 m6">
+      <h3>Click to Add Files</h3>
+        <FileUpload user={this.props.user}/></div>
+      <div className="col s12 m6">
+      <h3>Click to View Files</h3>
+        <img src={MyFiles} alt="Logo" width="50%" /></div>
+    </div>
 
-      
+    </div>
 
         
-      </div>
+     
 
 
     //     {/* {

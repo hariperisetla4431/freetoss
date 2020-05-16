@@ -1,5 +1,4 @@
 import React from 'react';
-import {Table, Button, Form} from 'react-bootstrap';
 import firebase, {storageRef } from '../../services/firebase';
 
 
@@ -21,6 +20,7 @@ class FileRetrieval extends React.Component {
       image: "image",
       pdf: "pdf",
       word: "word",
+      
     }
 
     
@@ -99,8 +99,11 @@ class FileRetrieval extends React.Component {
      this.setState({ itemList: itemList})
   })
 
-}
   
+
+}
+
+
  
 
   

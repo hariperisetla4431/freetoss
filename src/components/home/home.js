@@ -1,11 +1,12 @@
 import React from 'react';
 import Dashboard from '../dashboard/dashboard';
-import { Button, Row, Col, Container } from 'react-bootstrap';
 import history from '../../services/history';
 import { useHistory } from 'react-router-dom';
 import Test from './Test';
 import NavBar from '../navbar/navBar2';
 import SideBar from '../navbar/sideBar';
+import 'materialize-css/dist/css/materialize.min.css'
+
 
 function Home(props){
 
@@ -20,17 +21,26 @@ function Home(props){
       { props.user != null
         ? <div>
           <NavBar signout={props.signout} user={props.user} />
-        <Container fluid>
-                <Row>
-                    <Col xs={2} id="sidebar-wrapper">      
-                      <SideBar />
-                    </Col>
-                    <Col  xs={10} id="page-content-wrapper">
-                    <Dashboard user={props.user} signout={props.signout}/>
-                    </Col> 
-                </Row>
 
-            </Container>
+          {/* <div className="container">
+            <div className="row">
+              <div className="col s12">Test</div>
+              <div className="col s6">Test1</div>
+              <div className="col s6">Test 2</div>
+            </div>
+          </div> */}
+
+        {/* <Container style={{ padding: '100px'}}>
+                <Row> */}
+                    {/* <Col xs={2} id="sidebar-wrapper">      
+                      {/* <SideBar /> */}
+                    {/* </Col> */}
+                    {/* <Col  xs={10} id="page-content-wrapper"> */}
+                    <Dashboard user={props.user} signout={props.signout}/>
+                    {/* </Col>  */}
+                {/* </Row> */}
+
+            {/* // </Container> */}
           
           </div>
         : <div>
@@ -38,8 +48,8 @@ function Home(props){
         <br />
         <h3>Welcome to FreeToss8. Please login to go to continue.</h3>
 
-        <Button onClick= {navigateTo} >Login</Button>
-        <Button onClick= {props.signOut()} >Log Out</Button>
+        <a class="waves-effect waves-light btn"onClick= {navigateTo} >Login</a>
+        <a class="waves-effect waves-light btn" onClick= {props.signOut()} >Log Out</a>
         </div>
       }
     

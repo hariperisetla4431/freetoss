@@ -1,19 +1,69 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
-import Button from 'react-bootstrap/Button';
-import { LinkContainer } from "react-router-bootstrap";
+// import Button from 'react-bootstrap/Button';
+// import { LinkContainer, Link } from "react-router-bootstrap";
 // import Navbar from 'react-bootstrap/Navbar'
 // import NavDropdown from 'react-bootstrap/Navbar';
-import { Navbar, Nav, NavItem, NavDropdown, MenuItem, Form, FormControl } from 'react-bootstrap';
-import "./navbar.css"
-
+// import { Navbar, Nav, NavItem, NavDropdown, MenuItem, Form, FormControl } from 'react-bootstrap';
+import 'materialize-css/dist/css/materialize.min.css'
+import './navbar.css'
+import SideBar from './sideBar'
 
 function NavBar(props){
     return (
-      <div>
+      
+        <div>
+      <div class="navbar-fixed">
+      
+      <nav class="nav-wrapper indigo">
+      <SideBar />
+        <div class="container">
+          
+          <a href="#" class="brand-logo">Site Title</a>
+          <a href="#" class="sidenav-trigger" data-target="mobile-links">
+            <i class="material-icons">menu</i>
+          </a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="">Home</a></li>
+            <li><a href="">About</a></li>
+            <li><a href="">Contact</a></li>
+            <li><NavLink to="/login">Login</NavLink></li>
+     <li><NavLink to="/login" onClick={props.signout} >Logout</NavLink></li>
+            {/* {
+          props.user &&
+          <a to="/login" onClick = {props.signout} >
+          <Nav.Link onClick={props.signout}>Log Out</Nav.Link>
+                  </a>
+          
+  
+        } */}
+          </ul>
+        </div>
+      </nav>
+    </div>
+  
+    {/* //     <nav className="nav-wrapper grey darken-3">
         
+    // <div className="container">
 
-<Navbar bg="dark" variant="dark" expand="lg" >
+    // <a href="#" className="left brand-logo">FreeToss8</a>
+    // <a href="#" className="sidebar-trigger">
+    //   <i className="material-icons">menu</i>
+    // </a>
+      
+    //   <ul id="nav-mobile" className="right hide-on-med-and-down">
+    //     <li><NavLink to="/login">Login</NavLink></li>
+    //     <li><NavLink to="/login" onClick={props.signout} >Logout</NavLink></li>
+    //     <li><a href="collapsible.html">JavaScript</a></li>
+    //   </ul>
+    // </div> */}
+
+    <ul class="sidenav" id="mobile-links">
+    <li><a href="">Home</a></li>
+    <li><a href="">About</a></li>
+    <li><a href="">Contact</a></li>
+  </ul>
+{/* <Navbar bg="dark" variant="dark" expand="lg" >
     <LinkContainer to="/login">
   <Navbar.Brand href="#home">FreeToss8</Navbar.Brand>
   </LinkContainer>
@@ -57,36 +107,16 @@ function NavBar(props){
             </LinkContainer>
     </Nav>
 
-    <Form inline>
+    <Form inline> */}
 
         
-      {/* <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-      <Button variant="outline-success">Search</Button> */}
+{/*      
     </Form>
   </Navbar.Collapse>
-</Navbar>
+</Navbar> */}
 
-        {/* <Button>
-          <NavLink to="/">Home</NavLink>
-        </Button>
-        {
-          props.user &&
-          <Button onClick={props.signout}>Sign Out</Button>
-  
-        }
-        {
-          !props.user &&
-           <Button>
-          <NavLink to="/login">Login</NavLink>
-        </Button>
-        
-        }
-        
-        <Button>
-          <NavLink to="/signup">Signup</NavLink>
-        </Button> */}
-        
-      </div>
+     </div>  
+      
     )
   }
 
