@@ -6,13 +6,18 @@ import "./dashboard.css";
 // import FileRetrieval from '../fileRetrive/fileRetrieval';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheckSquare, faFolderPlus } from '@fortawesome/fontawesome-free-solid'
-import 'materialize-css/dist/css/materialize.min.css'
+// import 'materialize-css/dist/css/materialize.min.css'
 import MyFiles from '../../img/my-files-01.png'
+
+
 
 class Dashboard extends React.Component {
 
     constructor(props){
       super(props);
+
+      
+
       this.state = {
         onUpload: false,
         onFolders: false
@@ -32,71 +37,33 @@ class Dashboard extends React.Component {
       })
     }
 
+    //  Copyright = () => {
+    //   return (
+    //     <Typography variant="body2" color="textSecondary" align="center">
+    //       {'Copyright © '}
+    //       <Link color="inherit" href="https://material-ui.com/">
+    //         Your Website
+    //       </Link>{' '}
+    //       {new Date().getFullYear()}
+    //       {'.'}
+    //     </Typography>
+    //   );
+    // }
+
     render() {
+
+      
+
     return (
       <div className="container">
+        
       <div className="row">
 
-        {/* <Container> 
-        <Row>
-          <Col xs={12}> */}
-          
-
-          
-
-        {/* <h3>{this.props.user.email}</h3> */}
-        {/* <Button onClick= {this.props.signout} >Log Out</Button> */}
-        {/* </Col>
-        <Col xs={12} align="center"> */}
-        
-           {/* <div style={{display: 'block'}} className="plus radius"> */}
-           {/* <FontAwesomeIcon className="addFiles"  icon="plus-circle" size="9x"    />
-    */}
-
-
-        {/* <input style={{ size: '20rem', display: 'none'}} type="file" onChange={this.fileChangedHandler}  / >
-     </div> */}
-
-
-
-
-    
-
-    {/* <i className="fas fa-plus"></i> */}
-
-          
-        {/* </Col>
-        </Row>
-        </Container> */}
-        
-        {/* <br />
-        <br />
-<Row>
-
-  <Col>  */}
-  
-     
-        {/* <Button onClick= {this.toggleUpload} >File Upload</Button>
-        <br /><br />
-        <Button onClick={this.toggleFolders} >My Files</Button> */}
-        {/* </Col>
-        </Row> */}
       
-       
-      
-
-        
-
-      
-        
-{/*         
-        { this.state.onFolders && 
-        <FileRetrieval user={this.props.user}/>
-      } */}
         
         
       <div className="col s12">
-        <h1 style={{ padding: "20px"}}> Welcome {this.props.user.displayName}</h1>
+        
         
         </div>
       <div className="col s12 m6">

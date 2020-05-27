@@ -2,10 +2,11 @@ import React, {Component } from 'react';
 import {storage, db} from '../../services/firebase';
 import "./fileupload.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import 'materialize-css/dist/css/materialize.min.css'
-import M from 'materialize-css/dist/js/materialize.min.js'
+// import 'materialize-css/dist/css/materialize.min.css'
+// import M from 'materialize-css/dist/js/materialize.min.js'
 import ReactDOM from 'react-dom';
-
+import { Input } from '@material-ui/core';
+import Icon from '@material-ui/core/Icon';
 
 
 class FileUpload extends Component {
@@ -28,9 +29,9 @@ class FileUpload extends Component {
     };
   }
 
-  componentDidMount() {
-  M.AutoInit();
-}
+//   componentDidMount() {
+//   M.AutoInit();
+// }
 
 
   toggleUploadDetails = () => {
@@ -116,7 +117,8 @@ class FileUpload extends Component {
           <div className="image-upload">
   <label htmlFor="file-input">
     {/* <img src="https://www.psdgraphics.com/file/3d-push-button.jpg"/> */}
-    <FontAwesomeIcon className="addFiles"  icon="plus-circle" size="9x"    />
+    {/* <FontAwesomeIcon className="addFiles"  icon="plus-circle" size="9x"    /> */}
+    <Icon color="primary" style={{ fontSize: 300 }}>add_circle</Icon>
   </label>
 
   <input id="file-input" style={{display: 'none'}} type="file" onChange={this.handleChange}/>

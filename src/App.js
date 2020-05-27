@@ -3,23 +3,30 @@ import { BrowserRouter as Router, Route, NavLink, Redirect, Link, Switch} from '
 import './App.css';
 import firebase, { db, auth } from './services/firebase';
 import Home from './components/home/home';
-import NavBar from './components/navbar/navBar2';
-import SignIn from './components/signin/SignIn';
+import NavBar from './components/navbar/navBar';
+import SignIn from './components/signin/SignInLayout';
 import SignUp from './components/signup/SignUp';
 import SignUp2 from './components/signup/signup2';
 import Dashboard from './components/dashboard/dashboard';
 import LoginAuthenticate from './services/authenticate';
 import SignUpAuthenticate from './services/signupauthenticate';
 import {useHistory as history} from 'react-router-dom';
+import Resume from './components/resume/resumeLayout';
 
-import SideBar from './components/navbar/sideBar';
+
+
+import Test from './components/test';
 // import {Container, Row, Col, Card, Form, Button } from "react-bootstrap";
 
 // props is data in a component that does NOT change
 // state is data in a component that does change
 
 
-
+const NoMatch = ({ location }) => (
+  <div>
+    <h3>Error 404 - Page not Found!</h3>
+  </div>
+)
 
 class App extends React.Component {
   state = {
@@ -39,6 +46,7 @@ class App extends React.Component {
             photoURL: user.photoURL,
             email: user.email,
             displayName: user.displayName,
+            displayImage: user.displayImage,
             uid: user.uid,
           } 
         })
@@ -95,7 +103,9 @@ class App extends React.Component {
 
 
   signOutUser = () => {
-    auth.signOut();
+    auth.signOut().then(() => {
+      return <Redirect to="/login"/>
+    });
     
   }
 
@@ -104,37 +114,28 @@ class App extends React.Component {
       <div className="App">
         
         <Router history={history}>
-          
-        {/* <NavBar signout={this.signOutUser} user={this.state.user} />
-        <Container fluid>
-                <Row>
-                    <Col xs={2} id="sidebar-wrapper">      
-                      <SideBar />
-                    </Col>
-                    <Col  xs={10} id="page-content-wrapper">
-                        this is a test
-                    </Col> 
-                </Row>
 
-            </Container> */}
-
-
-        
         <Switch>
-          <Route exact path="/" component={() => <LoginAuthenticate signinGoogle = {this.signInUserGoogle}
+          <Route exact path="/" component={() => <LoginAuthenticate signInGoogle = {this.signInUserGoogle}
                               signout={this.signOutUser}
                               user={this.state.user} 
                               
                               /> } />
           <Route path="/login" component={() => 
-                <LoginAuthenticate signinGoogle = {this.signInUserGoogle}
+                <LoginAuthenticate signInGoogle = {this.signInUserGoogle}
                 signout={this.signOutUser}
                               user={this.state.user} 
                               
                               />} />
-          <Route path="/signup" component={() => <SignUpAuthenticate user={this.state.user} />} signout={this.signOutUser}/>
+          <Route path="/signup" component={() => <SignUpAuthenticate user={this.state.user} signout={this.signOutUser}/>} signout={this.signOutUser}/>
 
-          <Route path="/dashboard" component={() => <Home user = {this.state.user} />} />
+          <Route path="/dashboard" component={() => <Home user = {this.state.user} signout={this.signOutUser}/>} />
+
+          <Route path="/dock/:id" component={Test} />
+
+          <Route path="/resume" component={<Resume />} />
+
+          <Route component = {NoMatch} />
           </Switch>
           
           

@@ -34,3 +34,9 @@ a {
 a:hover {
     color: white !important;
 }
+
+#chat-dropdown {
+    
+    display: block; width: 444.297px; left: 544.703px; top: 64px; height: 244px; transform-origin: 100% 0px; opacity: 1; transform: scaleX(1) scaleY(1);
+}
+

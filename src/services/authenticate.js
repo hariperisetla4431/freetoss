@@ -1,5 +1,5 @@
 import React from 'react';
-import SignIn from '../components/signin/SignIn';
+import SignInLayout from '../components/signin/SignInLayout';
 import Home from '../components/home/home';
 import {Link, Redirect } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
@@ -17,15 +17,15 @@ function LoginAuthenticate(props){
      {props.user &&
      
           
-     <Home  user={props.user} signout={props.signout}/>
+     <Redirect to="/dashboard" />
      
      }
                
           
   {!props.user &&
-    <div>
-    <SignIn signinGoogle= {props.signinGoogle} />
-     </div>
+    
+    <SignInLayout signInGoogle= {props.signInGoogle} />
+     
   }
     
           

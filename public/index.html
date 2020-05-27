@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
@@ -24,10 +24,13 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <!--Import Google Icon Font-->
+    <!-- Import Google Icon Font -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <!-- <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/> -->
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 
     <title>React App</title>
@@ -46,28 +49,41 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
 
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
   <script>
     $(document).ready(function(){
       $('.sidenav').sidenav();
-    });
+    }); -->
 
 
     
   </script>
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('select');
-    var instances = M.FormSelect.init(elems, options);
-  });
+  //   document.addEventListener('DOMContentLoaded', function() {
+  //   var elems = document.querySelectorAll('select');
+  //   var instances = M.FormSelect.init(elems, options);
+  // });
+
+  // // Or with jQuery
+
+  // $(document).ready(function(){
+  //   $('select').formSelect();
+  // });
+        
+  
+  // document.addEventListener('DOMContentLoaded', function() {
+  //   var elems = document.querySelectorAll('.dropdown-trigger');
+  //   var instances = M.Dropdown.init(elems, options);
+  // });
 
   // Or with jQuery
 
-  $(document).ready(function(){
-    $('select').formSelect();
-  });
-        
+  // $('.dropdown-trigger').dropdown();
   </script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script> -->
+
+
   </body>
 </html>

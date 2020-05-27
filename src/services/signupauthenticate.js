@@ -1,5 +1,4 @@
 import React from 'react';
-import SignIn from '../components/signin/SignIn';
 import Home from '../components/home/home';
 import {Link, Redirect } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
@@ -11,12 +10,14 @@ function SignUpAuthenticate(props){
   const navigateTo = () => props.history.push('/dashboard');
 
     return (
-      <div className="container ">
+      <div>
         
 
 
 {props.user &&
-         <Home  user={props.user} />
+
+        <Redirect to="/dashboard" />
+        //  <Home  user={props.user} signout={props.signout} />
 }
                      
 

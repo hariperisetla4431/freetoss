@@ -1,5 +1,8 @@
 import React from 'react';
 import firebase, {storageRef } from '../../services/firebase';
+import { FormControl } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
+
 
 
 class FileRetrieval extends React.Component {
@@ -161,16 +164,16 @@ render() {
     return(
         <div>
 
-<Form.Group  controlId="formGridState">
-      <Form.Label>State</Form.Label>
-      <Form.Control as="select" custom onChange={(e) => this.setState({ value: e.target.value })}>
+<FormControl  controlId="formGridState">
+      <FormControl>State</FormControl>
+      <FormControl as="select" custom onChange={(e) => this.setState({ value: e.target.value })}>
       
         <option>Choose FileType</option>
         <option value="image">Image</option>
         <option value="pdf">PDF</option>
         <option value="word">Word</option>
-      </Form.Control>
-    </Form.Group>  
+      </FormControl>
+    </FormControl>  
 
     <Button
           onClick={this.handleFolderOpen}
@@ -182,7 +185,7 @@ render() {
 
 
     <h1>Folders: </h1>
-    <Table striped bordered hover size="sm" >
+    <table striped bordered hover size="sm" >
 
 
 
@@ -212,12 +215,12 @@ render() {
       )
     })}
     </tbody>
-    </Table>
+    </table>
     <br />
     
     <h1>Files: </h1>
 
-    <Table striped bordered hover size="sm" >
+    <table striped bordered hover size="sm" >
       <thead>
         <tr>
           <th>S.No</th>
@@ -266,7 +269,7 @@ render() {
       )}
 
 </tbody>
-      </Table>
+      </table>
 
       
   
