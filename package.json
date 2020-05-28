@@ -16,6 +16,7 @@
     "@testing-library/user-event": "^7.1.2",
     "@trendmicro/react-sidenav": "^0.5.0",
     "firebase": "^7.14.2",
+    "html2canvas": "^1.0.0-rc.5",
     "materialize-css": "^1.0.0-rc.2",
     "mdbreact": "^4.26.0",
     "react": "^16.13.1",

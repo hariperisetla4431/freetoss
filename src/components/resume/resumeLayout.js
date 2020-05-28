@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
+import Resume from './resume';
 
-class Resume extends React.Component{
+class ResumeLayout extends React.Component{
     
     constructor(props){
         super(props);
@@ -13,9 +14,14 @@ class Resume extends React.Component{
     render(){
 
         return(
-            <div><h1>Resume</h1></div>
+            <div>
+            <h1>Resume</h1>
+            
+            <Resume />
+            </div>
+
         )
     }
 }
 
-export default Resume;
+export default ResumeLayout;

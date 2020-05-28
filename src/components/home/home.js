@@ -1,7 +1,7 @@
 import React from 'react';
 import DashboardLayout from '../dashboard/dashboardLayout';
 import history from '../../services/history';
-import { useHistory } from 'react-router-dom';
+import { useHistory, withRouter } from 'react-router-dom';
 import Test from './Test';
 // import NavBar from '../navbar/navBar';
 // import SideBar from '../navbar/sideBar';
@@ -162,4 +162,4 @@ function Home(props){
     )
   }
 
-export default Home;
+export default withRouter(Home);

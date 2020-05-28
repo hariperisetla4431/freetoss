@@ -20,6 +20,8 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems, secondaryListItems } from './listItems';
 
+import { withRouter } from 'react-router-dom';
+
 import MyFiles from '../../img/my-files-01.png'
 import FreeTossLogo from '../../img/freetoss logo.svg';
 import FreeTossLogoHorizontal from '../../img/Free Toss 8 Logo Horizontal.svg';
@@ -149,7 +151,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function DashboardLayout(props) {
+ function DashboardLayout(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   const handleDrawerOpen = () => {
@@ -271,3 +273,5 @@ theme = responsiveFontSizes(theme);
     </div>
   );
 }
+
+export default withRouter(DashboardLayout);

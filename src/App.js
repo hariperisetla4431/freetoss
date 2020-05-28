@@ -304,7 +304,7 @@ class App extends React.Component {
 
           <Route path="/dock/:id" component={Test} />
 
-          <Route path="/resume" component={<Resume />} />
+          <Route path="/resume" component={Resume} />
 
           <Route component = {NoMatch} />
           </Switch>
