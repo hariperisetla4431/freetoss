@@ -2,7 +2,7 @@ import React from 'react';
 import Home from '../components/home/home';
 import {Link, Redirect } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
-import SignUp from '../components/signup/signup2';
+import SignUp from '../components/signup/SignUpLayout';
 
 function SignUpAuthenticate(props){
 
@@ -19,25 +19,14 @@ function SignUpAuthenticate(props){
         <Redirect to="/dashboard" />
         //  <Home  user={props.user} signout={props.signout} />
 }
-                     
-
-            
-          {!props.user &&
-                      <SignUp signinGoogle= {props.signinGoogle} signin = {props.signin} />
-
-          }          
-
-
-
-            
-            </div>
-
-
-        );
-    }
+                           
+      {!props.user &&
+      <SignUp signInGoogle = {props.signInGoogle} />
+      }
+    </div>
+  );
+}
     
-
-
 export default SignUpAuthenticate;
 
 

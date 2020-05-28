@@ -8,7 +8,7 @@ import Authenticate from '../../services/authenticate';
 import Input from '../input_test';
 import SignIn from './SignIn';
 
-class Login extends React.Component {
+class SignInLayout extends React.Component {
   constructor(props){
     super(props);
     this.signInUser = this.signInUser.bind(this);
@@ -79,6 +79,6 @@ class Login extends React.Component {
     
 
 
-export default withRouter(Login);
+export default withRouter(SignInLayout);
 
 
