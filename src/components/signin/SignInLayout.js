@@ -13,14 +13,25 @@ class SignInLayout extends React.Component {
     super(props);
     this.signInUser = this.signInUser.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleResetPassword = this.handleResetPassword.bind(this);
     this.handleClick = this.handleClick.bind(this);
+
     this.state = {
       email: '',
       password: ''  
     }
   }
 
-  
+  resetPassword = (e) => {
+    var auth = firebase.auth();
+var emailAddress = "user@example.com";
+
+auth.sendPasswordResetEmail(emailAddress).then(function() {
+  // Email sent.
+}).catch(function(error) {
+  // An error happened.
+});
+  }
   
   signInUser = (e) => {
 
@@ -54,6 +65,11 @@ class SignInLayout extends React.Component {
     this.props.history.push('/signup');
   }
 
+  handleResetPassword(e) {
+    e.preventDefault();
+    this.props.history.push('/password-reset');
+  }
+
   //   signIn = (e) => {
   //     e.preventDefault();
 
@@ -76,7 +92,7 @@ class SignInLayout extends React.Component {
   render() {
     return (
 
-      <SignIn signInGoogle={this.props.signInGoogle} handleChange={this.handleChange} handleClick={this.handleClick} signInUser={this.signInUser} />
+      <SignIn signInGoogle={this.props.signInGoogle} handleChange={this.handleChange} handleClick={this.handleClick} handleResetPassword={this.handleResetPassword} signInUser={this.signInUser} />
 
         );
     }

@@ -13,6 +13,8 @@ import SignUpAuthenticate from './services/signupauthenticate';
 import {useHistory as history} from 'react-router-dom';
 import Resume from './components/resume/resumeLayout';
 
+import ResetPassword from './components/signin/resetPasswordLayout';
+
 import Test from './components/test';
 // import {Container, Row, Col, Card, Form, Button } from "react-bootstrap";
 
@@ -310,6 +312,8 @@ class App extends React.Component {
           <Route path="/dock/:id" component={Test} />
 
           <Route path="/resume" component={Resume} />
+
+          <Route path="/password-reset" component={ResetPassword} />
 
           <Route component = {NoMatch} />
           </Switch>

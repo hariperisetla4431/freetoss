@@ -111,15 +111,10 @@ export default function SignInSide(props) {
 
             />
 
-            <FormControlLabel
+            {/* <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
-            />
-
-
-
-
-
+            /> */}
 
             <Button
               type="submit"
@@ -134,7 +129,7 @@ export default function SignInSide(props) {
             </Button>
             <Grid container>
               <Grid item xs align='left'>
-                <Link href="#" variant="body2">
+                <Link href="#reset-password" onClick={props.handleResetPassword} variant="body2">
                   Forgot password?
                 </Link>
               </Grid>
