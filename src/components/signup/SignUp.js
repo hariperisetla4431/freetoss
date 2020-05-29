@@ -14,7 +14,6 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Divider from '@material-ui/core/Divider';
 import SignUpImg from '../../img/signup.png';
-import TermsAndConditions from './T&C/terms&conditions';
 
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
@@ -27,6 +26,12 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Slide from '@material-ui/core/Slide';
 
+import Alert from '@material-ui/lab/Alert';
+import IconButton from '@material-ui/core/IconButton';
+import Collapse from '@material-ui/core/Collapse';
+import CloseIcon from '@material-ui/icons/Close';
+
+import SignUpLayout from './SignUpLayout';
 
 import './SignUp.css'
 
@@ -123,17 +128,38 @@ export default function SignUpSide(props) {
     setOpen(false);
   };
 
-  const handleChecked = (e) => {
-    return true;
+  
+  const handleUnChecked = () => {
+    setChecked(false);
+    setOpen(false);
   };
 
-  const [checked, setChecked] = React.useState({handleChecked});
+  const handleChecked = () => {
+    setChecked(true);
+    setOpen(false);
+
+    
+
+  };
+
+ 
+
+  const [checked, setChecked] = React.useState(false);
 
   const handleChange = (event) => {
     setChecked(event.target.checked);
   };
 
- 
+  // const submitButton = () => {
+
+  //   props.signUpUser(); 
+  //   props.toggleAlert();
+  //   // if(checked == true){
+  //   //   return <SignUpLayout signUpUser ={props.signUpUser} />
+  //   // }
+  //   // else
+  //   // alert("Check the terms")
+  // }
 
   return (
     <Grid container component="main" className={classes.root}>
@@ -173,7 +199,7 @@ export default function SignUpSide(props) {
               label="Email Address"
               name="email"
               autoComplete="email"
-              autoFocus
+              
 
               defaultValue={props.email}
 
@@ -200,7 +226,7 @@ export default function SignUpSide(props) {
             <Grid container>
               <Grid item xs={0} align='left'>
             <FormControlLabel
-              control={<Checkbox checked={checked} onChange={handleChange} value="remember" color="primary" />}
+              control={<Checkbox checked={checked}  onChange={handleChange} value="remember" color="primary" />}
   // label=  "I agree to FreeToss8's "
             />
             </Grid>
@@ -218,6 +244,7 @@ export default function SignUpSide(props) {
         <DialogTitle id="alert-dialog-slide-title">{"FreeToss8 - Terms and Conditions"}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description" style={{ textAlign: 'justify'}}>
+            <div>
           <h3><b>1. Introduction</b></h3>
             <p>
 1.1 These terms and conditions shall govern your use of our website.
@@ -540,11 +567,11 @@ out of such a failure.
 <p>9.2 We will usually cancel an account if it remains unused for a continuous period
 of [18 months].
 <br/></p>
-
+</div>
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={handleUnChecked} color="primary">
             Disagree
           </Button>
           <Button onClick={handleChecked} color="primary">
@@ -574,7 +601,24 @@ of [18 months].
       </Modal> */}
             </Grid>
 
-
+            <Collapse in={props.onAlert}>
+        <Alert
+          action={
+            <IconButton
+              aria-label="close"
+              color="inherit"
+              size="small"
+              onClick={() => {
+                setOpen(false);
+              }}
+            >
+              <CloseIcon fontSize="inherit" />
+            </IconButton>
+          }
+        >
+          Close me!
+        </Alert>
+      </Collapse>
 
 
             <Button
@@ -588,8 +632,15 @@ of [18 months].
             >
               Sign Up
             </Button>
+
+          <Grid container>
+          <Grid item xs align='center'>
+              <p>By Signing up you are agreeing all the terms and conditions of FreeToss8</p>
+              </Grid>
+          </Grid>
+
             <Grid container>
-              
+            
               <Grid item xs align='center'>
               <p>Already have an account? <Link href="#login" onClick={props.handleClick} >{"Login here"}</Link></p>
               </Grid>

@@ -29,7 +29,12 @@ class SignInLayout extends React.Component {
 
     firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((result) => {
       const user = result.user;
-      console.log(user);
+
+      if(user.emailVerified == false){
+        alert("Your are not a verified user. Please verify your email to continue!")
+        
+      }
+      // console.log(user);
       return <Redirect to="/" />
       
 

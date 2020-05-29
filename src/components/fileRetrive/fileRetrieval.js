@@ -30,9 +30,7 @@ class FileRetrieval extends React.Component {
 
   }
 
-  componentDidMount() {
 
-  } 
     
 // // Get the download URL
 // storageRef.getDownloadURL().then( res => {

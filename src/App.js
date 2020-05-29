@@ -228,9 +228,14 @@ class App extends React.Component {
 
   componentDidMount(){
     firebase.auth().onAuthStateChanged((user) => {
-      if (user != null) {
+      
+
+      if (user != null && user.emailVerified) {
+        
+
+        
         // User is signed in.
-        this.setState({ 
+        this.setState({
           user: {
             photoURL: user.photoURL,
             email: user.email,
@@ -240,7 +245,7 @@ class App extends React.Component {
           } 
         })
 
-        
+      
       } else {
         // No user is signed in.
         this.setState({ user: null })
@@ -298,7 +303,7 @@ class App extends React.Component {
                               user={this.state.user} 
                               
                               />} />
-          <Route path="/signup" component={() => <SignUpAuthenticate user={this.state.user} signout={this.signOutUser}/>} signInGoogle = {this.signInUserGoogle} signout={this.signOutUser}/>
+          <Route path="/signup" component={() => <SignUpAuthenticate user={this.state.user} signout={this.signOutUser} signInGoogle = {this.signInUserGoogle} signout={this.signOutUser}/>} />
 
           <Route path="/dashboard" component={() => <Home user = {this.state.user} signout={this.signOutUser}/>} />
 
