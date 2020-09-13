@@ -1,3 +1,6 @@
+## Folder Structure
+
+```
 |   App.css
 |   App.js
 |   App.test.js
@@ -77,4 +80,4 @@
         firebase.js
         history.js
         signupauthenticate.js
-        
+```
