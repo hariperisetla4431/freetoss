@@ -10,54 +10,51 @@ const useStyles = makeStyles((theme) => ({
         margin: theme.spacing(1),
         width: '25ch',
       },
+      
     },
-  }));
+    full: {
+        '& > *': {
+          margin: theme.spacing(1),
+          width: '50ch',
+        }
+  },
+}));
 
 export default function FormPropsTextFields(props) {
   const classes = useStyles();
 
   return (
-    <form className={classes.root} noValidate autoComplete="off">
+<div>
+<form className={classes.root} noValidate autoComplete="off">
       
-        {/* <TextField id="standard-required" value={props.testName} onChange={props.handleChange} /> */}
-        <TextField
-              variant="standard"
-              margin="normal"
-              required
-              fullWidth
-              id="name"
-              label="name"
-              name="name"
-              autoComplete="name"
-              autoFocus
+      {/* <TextField id="standard-required" value={props.testName} onChange={props.handleChange} /> */}
+      <TextField variant="standard" margin="normal" required fullWidth id="name" label="Name" name="name" autoComplete="name" autoFocus
+          defaultValue={props.name} onChange={props.handleChange}/>
 
-              defaultValue={props.name}
+  <br/>
 
-              onChange={props.handleChange}
+      <TextField variant="standard" margin="normal" required fullWidth id="name" label="Phone" name="phone" autoComplete="name" autoFocus
+          defaultValue={props.phone} onChange={props.handleChange}/>
+<br/>
+      <TextField variant="standard" margin="normal" required fullWidth id="name" label="Email" name="email" autoComplete="name" autoFocus
+          defaultValue={props.email} onChange={props.handleChange}/>
+<br/>
+      <TextField variant="standard" margin="normal" style={{ margin: 50 }} required fullWidth id="name" label="Objective" name="objective" autoComplete="name" autoFocus
+          multiline
+          rows={5}
+          rowsMax={10} defaultValue={props.objective} onChange={props.handleChange} inputProps={{ maxLength: 300 }}/>
+<br/>
+      <TextField variant="standard" margin="normal" required fullWidth id="name" label="College" name="college" autoComplete="name" autoFocus
+          defaultValue={props.college} onChange={props.handleChange} />
 
-            />
+<br/>
 
-            <TextField
-              variant="standard"
-              margin="normal"
-              required
-              fullWidth
-              id="name"
-              label="name"
-              name="college"
-              autoComplete="name"
-              autoFocus
+      
 
-              defaultValue={props.college}
+      </form>
+      
 
-              onChange={props.handleChange}
-
-            />
-        <Button variant="contained" color="primary" onClick={props.handleClick}>
-        Test
-      </Button>
-
-        </form>
+</div>
   );
 
 }

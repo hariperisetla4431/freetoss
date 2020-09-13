@@ -19,6 +19,7 @@
     "firebase": "^7.14.2",
     "html2canvas": "^1.0.0-rc.5",
     "jspdf": "^1.5.3",
+    "jspdf-autotable": "^3.5.3",
     "materialize-css": "^1.0.0-rc.2",
     "mdbreact": "^4.26.0",
     "react": "^16.13.1",
