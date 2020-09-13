@@ -1,0 +1,140 @@
+.tableClass {
+    margin: auto;
+  min-width: 300px;
+  max-width: 100%;
+  border-collapse: collapse;
+}
+
+.tableClass tr:first-child {
+    border-top: none;
+    background: #428bca;
+    color: #fff;
+  }
+
+.tableClass tr{
+    border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  background-color: #f5f9fc;
+}
+
+.tableClass th{
+    display: none;
+}
+
+.tableClass td{
+    display: block;
+}
+
+.tableClass td:first-child {
+    margin-top: .5em;
+  }
+  
+  .tableClass td:last-child {
+    margin-bottom: .5em;
+  }
+  
+  .tableClass td:before {
+    content: attr(data-th) ": ";
+    font-weight: bold;
+    width: 120px;
+    display: inline-block;
+    color: #000;
+  }
+  
+  .tableClass th,
+  .tableClass td {
+    text-align: left;
+  }
+  
+  .tableClass {
+    color: #333;
+    border-radius: .4em;
+    overflow: hidden;
+  }
+  
+  .tableClass tr {
+    border-color: #bfbfbf;
+  }
+  
+  .tableClass th,
+  .tableClass td {
+    padding: .5em 1em;
+  }
+  @media screen and (max-width: 601px) {
+    .tableClass tr:nth-child(2) {
+      border-top: none;
+    }
+  }
+  @media screen and (min-width: 600px) {
+    .tableClass tr:hover:not(:first-child) {
+      background-color: #d8e7f3;
+    }
+    .tableClass td:before {
+      display: none;
+    }
+    .tableClass th,
+    .tableClass td {
+      display: table-cell;
+      padding: .25em .5em;
+    }
+    .tableClass th:first-child,
+    .tableClass td:first-child {
+      padding-left: 0;
+    }
+    .tableClass th:last-child,
+    .tableClass td:last-child {
+      padding-right: 0;
+    }
+    .tableClass th,
+    .tableClass td {
+      padding: 1em !important;
+    }
+  }
+  
+  
+  /* THE END OF THE IMPORTANT STUFF */
+  
+  /* Basic Styling */
+  /* h1 {
+    text-align: center;
+    font-size: 2.4em;
+    color: #f2f2f2;
+  }
+  .container {
+    display: block;
+    text-align: center;
+  }
+  h3 {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    font-size: 1.5em;
+    color: #cecece;
+  }
+  h3:before {
+    content: "\25C0";
+    position: absolute;
+    left: -50px;
+    -webkit-animation: leftRight 2s linear infinite;
+    animation: leftRight 2s linear infinite;
+  }
+  h3:after {
+    content: "\25b6";
+    position: absolute;
+    right: -50px;
+    -webkit-animation: leftRight 2s linear infinite reverse;
+    animation: leftRight 2s linear infinite reverse;
+  } */
+  /* @-webkit-keyframes leftRight {
+    0%    { -webkit-transform: translateX(0)}
+    25%   { -webkit-transform: translateX(-10px)}
+    75%   { -webkit-transform: translateX(10px)}
+    100%  { -webkit-transform: translateX(0)}
+  }
+  @keyframes leftRight {
+    0%    { transform: translateX(0)}
+    25%   { transform: translateX(-10px)}
+    75%   { transform: translateX(10px)}
+    100%  { transform: translateX(0)}
+  } */
+  

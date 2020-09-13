@@ -244,7 +244,7 @@ export default function SignUpSide(props) {
         <DialogTitle id="alert-dialog-slide-title">{"FreeToss8 - Terms and Conditions"}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description" style={{ textAlign: 'justify'}}>
-            <div>
+            {/* <div> */}
           <h3><b>1. Introduction</b></h3>
             <p>
 1.1 These terms and conditions shall govern your use of our website.
@@ -507,67 +507,67 @@ misleading].
 [be resident or situated in the United Kingdom].
 <br/></p>
 
-<p>7.2 You may register for an account with our website by [completing and
+<span>7.2 You may register for an account with our website by [completing and
 submitting the account registration form on our website, and clicking on the
 verification link in the email that the website will send to you].
-<br/></p>
+<br/></span>
 
-<p>7.3. You must not allow any other person to use your account to access the
+<span>7.3. You must not allow any other person to use your account to access the
 website.
-<br/></p>
+<br/></span>
 
-<p>7.4 You must notify us in writing immediately if you become aware of any
+<span>7.4 You must notify us in writing immediately if you become aware of any
 unauthorised use of your account.
-<br/></p>
+<br/></span>
 
-<p>7.5 You must not use any other person's account to access the website [, unless
+<span>7.5 You must not use any other person's account to access the website [, unless
 you have that person's express permission to do so].
-<br/></p>
+<br/></span>
 
 <h3>8. User login details</h3>
 
-<p>8.1 If you register for an account with our website, [we will provide you with] OR
+<span>8.1 If you register for an account with our website, [we will provide you with] OR
 [you will be asked to choose] [a user ID and password].
-<br/></p>
+<br/></span>
 
-<p>8.2 Your user ID must not be liable to mislead and must comply with the content
+<span>8.2 Your user ID must not be liable to mislead and must comply with the content
 rules set out in Section 13; you must not use your account or user ID for or in
 connection with the impersonation of any person.
-<br/></p>
+<br/></span>
 
-<p>8.3. You must keep your password confidential.
-<br/></p>
+<span>8.3. You must keep your password confidential.
+<br/></span>
 
-<p>8.4 You must notify us in writing immediately if you become aware of any
+<span>8.4 You must notify us in writing immediately if you become aware of any
 disclosure of your password.
-<br/></p>
+<br/></span>
 
-<p>8.5 You are responsible for any activity on our website arising out of any failure to
+<span>8.5 You are responsible for any activity on our website arising out of any failure to
 keep your password confidential, and may be held liable for any losses arising
 out of such a failure.
-<br/></p>
+<br/></span>
 
 <h3>9. Cancellation and suspension of account</h3>
 
-<p>9.1 We may:
-<br/></p>
+<span>9.1 We may:
+<br/></span>
 
-<p>(a) [suspend your account];
-<br/></p>
+<span>(a) [suspend your account];
+<br/></span>
 
-<p>(b) [cancel your account]; and/or
-<br/></p>
+<span>(b) [cancel your account]; and/or
+<br/></span>
 
-<p>(c) [edit your account details],
-<br/></p>
+<span>(c) [edit your account details],
+<br/></span>
 
-<p>at any time in our sole discretion with or without notice to you.
-<br/></p>
+<span>at any time in our sole discretion with or without notice to you.
+<br/></span>
 
-<p>9.2 We will usually cancel an account if it remains unused for a continuous period
+<span>9.2 We will usually cancel an account if it remains unused for a continuous period
 of [18 months].
-<br/></p>
-</div>
+<br/></span>
+{/* </div> */}
           </DialogContentText>
         </DialogContent>
         <DialogActions>
@@ -660,12 +660,12 @@ of [18 months].
             <Grid container>
               <Grid item xs align='center'>
 <Button onClick={props.signInGoogle}>
-<div class='g-sign-in-button'>
-  <div class='content-wrapper'>
-  <div class='logo-wrapper'>  
+<div className='g-sign-in-button'>
+  <div className='content-wrapper'>
+  <div className='logo-wrapper'>  
     <img src='https://developers.google.com/identity/images/g-logo.png'/>
     </div>  
-    <span class='text-container'> 
+    <span className='text-container'> 
       <span>Sign up with Google</span>
     </span>
   </div>  

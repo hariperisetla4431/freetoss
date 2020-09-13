@@ -1,6 +1,24 @@
 import React from 'react';
 import firebase from '../services/firebase';
 // import 'materialize-css/dist/css/materialize.min.css'
+import TestLayout from './test copy'
+import "./test.css";
+
+
+
+
+
+
+
+// LAYOUT LAYOUT LAYOUT
+
+
+
+
+
+
+
+
 
 class Test extends React.Component {
 
@@ -235,20 +253,22 @@ return jsx
     
     <h1>Files: </h1>
 
-    <table className="striped">
-          <thead>
+    <table className="tableClass">
+    <tbody>
             <tr>
               <th>Sl.No</th>
               <th>Name</th>
               <th>Url</th>
             </tr>
-          </thead>
+          
 
-          <tbody>
+          
           {this.showTable()}
           </tbody>
           
         </table>
+
+        {/* <TestLayout /> */}
 {/* 
     <table>
       <thead>
