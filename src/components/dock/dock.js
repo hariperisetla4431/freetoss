@@ -1,40 +1,32 @@
 import React from 'react';
-import firebase from '../services/firebase';
+import firebase from '../../services/firebase';
 // import 'materialize-css/dist/css/materialize.min.css'
-import TestLayout from './test copy'
-import "./test.css";
+import "./dock.css";
 
-
-
-
-
-
-
-// LAYOUT LAYOUT LAYOUT
-
-
-
-
-
-
-
-
-
-class Test extends React.Component {
+class Dock extends React.Component {
 
   constructor(props) {
     super(props);
 
     this.state = {
       itemList: [""],
-      download: [""]     
+      download: [""],
+      user: `${this.props.match.params.id}`,
+    email: '',
+    password: ''      
     } 
 }
 
+
+
   componentDidMount() {
      
+    
+
+    // const storageRef = firebase.storage().ref(`${this.props.match.params.id}/profile`);
+    
     const storageRef = firebase.storage().ref(`${this.props.match.params.id}/profile`);
-        
+
       storageRef.listAll().then( res => {
 
         const download = []
@@ -50,6 +42,20 @@ class Test extends React.Component {
           })
         })
       })
+
+      firebase.auth().onAuthStateChanged((user) => {
+    
+        // User is signed in.
+        this.setState({
+          user: {
+            // photoURL: user.photoURL,
+            // email: user.email,
+            displayName: user.displayName,
+            displayImage: user.displayImage,
+            uid: user.uid,
+          } 
+        })
+    });
           
 
               
@@ -123,9 +129,10 @@ return this.state.itemList.map((ele,index) => {
   
 let jsx = (
   <tr key={index}>
-    <td>{index+1}</td>
-    <td>{ele.name}</td>
-    <td><a href={this.state.download[index]} target="_blank">{ele.name}</a></td>
+    <td data-th="Sl. No">{index+1}</td>
+    <td data-th="Name">{ele.name}</td>
+    <td data-th="URL"><a className="download" href={this.state.download[index]} target="_blank">View</a></td>
+    {/* <td><a href={this.state.download[index]} target="_blank">{ele.name}</a></td> */}
     {/* <td><a href={this.state.download[index]} target="_blank">{this.state.download[index]}</a></td> */}
   </tr>
 )
@@ -187,71 +194,14 @@ return jsx
       
 
         return(
-            <div>
-                <h1>Test App</h1>
+            <div className="dock-container">
+                <h1 className="dock-title">FreeToss Dock</h1>
                 {/* <Link to={location.pathname}>Open</Link> */}
-                <h1>{match.params.id}</h1>
+                <h3 className="dock-uid">{match.params.id}</h3>
                 {/* <h1>{this.props.location.pathname}</h1> */}
-                <div>
-
-{/* <Form.Group  controlId="formGridState">
-      <Form.Label>State</Form.Label> */}
-        {/* <divb class="input-field col s12">
-
-      <select as="select" custom onChange={(e) => this.setState({ value: e.target.value })}>
-      
-        <option>Choose FileType</option>
-        <option value="image">Image</option>
-        <option value="pdf">PDF</option>
-        <option value="word">Word</option>
-      </select>
-      </divb */}
-    {/* </Form.Group>   */}
-
-    {/* <button
-          onClick={this.handleFolderOpen}
-          className="waves-effect waves-light btn"
-        >
-          Open
-        </button> */}
-
-
-
-    {/* <h1>Folders: </h1>
-    <table >
-
-
-
-    <tbody>
-      
-    { 
-      this.state.download &&
-      this.state.download.map( (download, index ) => {
-      return(
-
-        
-          
-      
-        <tr key={index}>
-         <td> <h3>{index + 1}</h3></td>
-         <td> <h3>{download.toString()}</h3></td>
-         
-         {/* <td> 
-        <input
-          type="button"
-          defaultValue={folderName.name}
-          onClick={this.handleClick}
-        /> </td> 
-          </tr>
-      
-      
-      )
-    })}
-    </tbody>
-    </table> */}
+                <h2 >{this.state.user.displayName}</h2>
+            <div>
     <br />
-    
-    <h1>Files: </h1>
 
     <table className="tableClass">
     <tbody>
@@ -366,4 +316,4 @@ return jsx
     }
 }
 
-export default Test;
+export default Dock;

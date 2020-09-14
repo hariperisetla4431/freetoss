@@ -3,8 +3,6 @@ import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-// import FormControlLabel from '@material-ui/core/FormControlLabel';
-// import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
@@ -13,20 +11,16 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Divider from '@material-ui/core/Divider';
-
 import SignInImg from '../../img/signin.png';
-
 import './SignIn.css'
 
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
+      <Link color="inherit" href="https://freetoss8.web.app/">
+        FreeToss8
+      </Link>{' 2020'}
     </Typography>
   );
 }
@@ -111,11 +105,6 @@ export default function SignInSide(props) {
 
             />
 
-            {/* <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            /> */}
-
             <Button
               type="submit"
               fullWidth
@@ -154,22 +143,21 @@ export default function SignInSide(props) {
 
             <Grid container>
               <Grid item xs align='center'>
-              
-<Button onClick={props.signInGoogle}>
-<div className='g-sign-in-button'>
-  <div className='content-wrapper'>
-  <div className='logo-wrapper'>  
-    <img src='https://developers.google.com/identity/images/g-logo.png'/>
-    </div>  
-    <span className='text-container'> 
-      <span>Sign in with Google</span>
-    </span>
-  </div>  
-</div>
-</Button>
+    
+                <Button onClick={props.signInGoogle}>
+                <div className='g-sign-in-button'>
+                  <div className='content-wrapper'>
+                  <div className='logo-wrapper'>  
+                    <img src='https://developers.google.com/identity/images/g-logo.png'/>
+                    </div>  
+                    <span className='text-container'> 
+                      <span>Sign in with Google</span>
+                    </span>
+                  </div>  
+                </div>
+                </Button>
               </Grid>
             </Grid>
-
             <Box mt={5}>
               <Copyright />
             </Box>

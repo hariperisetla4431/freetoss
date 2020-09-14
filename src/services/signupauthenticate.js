@@ -9,19 +9,17 @@ function SignUpAuthenticate(props){
   const history = useHistory();
   const navigateTo = () => props.history.push('/dashboard');
 
-    return (
-      <div>
-        
+  return (
+    <div>
 
-
-{props.user &&
-
-        <Redirect to="/dashboard" />
+      {
+        props.user && <Redirect to="/dashboard" />
         //  <Home  user={props.user} signout={props.signout} />
-}
-                           
-      {!props.user &&
-      <SignUp signInGoogle = {props.signInGoogle} />
+      }
+
+      {
+        !props.user &&
+          <SignUp signInGoogle = {props.signInGoogle} />
       }
     </div>
   );

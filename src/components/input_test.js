@@ -1,5 +1,5 @@
 import React from 'react';
-import Test from './test';
+// import Test from './dock/Dock';
 import {Link} from 'react-router-dom';
 
 class Input extends React.Component{

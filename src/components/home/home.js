@@ -143,18 +143,14 @@ function Home(props){
     return (
       
       <div>
-      
-      
       { props.user != null
-        ? <DashboardLayout user={props.user} signout={props.signout}/>     
+        ? <DashboardLayout page = {props.page} toggleHelp = {props.toggleHelp} match = {props.match} user={props.user} signout={props.signout} test={props.test} />     
         
         : <div>
         <h1>FreeToss8</h1>
         <br />
         <h3>Welcome to FreeToss8. Please login to go to continue.</h3>
         <Redirect to="/login" />
-        {/* <a class="waves-effect waves-light btn"onClick= {navigateTo} >Login</a> */}
-        {/* <a class="waves-effect waves-light btn" onClick= {props.signout()} >Log Out</a> */}
         </div>
       }
  

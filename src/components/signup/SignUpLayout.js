@@ -87,7 +87,6 @@ user.sendEmailVerification().then(function() {
    this.props.history.push('/login');
  }
 
-
 render() {
 return (
 

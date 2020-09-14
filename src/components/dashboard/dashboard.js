@@ -9,6 +9,9 @@ import { faCheckSquare, faFolderPlus } from '@fortawesome/fontawesome-free-solid
 // import 'materialize-css/dist/css/materialize.min.css'
 import MyFiles from '../../img/my-files-01.png'
 
+import Grid from '@material-ui/core/Grid';
+import Typography from '@material-ui/core/Typography';
+
 
 
 class Dashboard extends React.Component {
@@ -20,10 +23,16 @@ class Dashboard extends React.Component {
 
       this.state = {
         onUpload: false,
-        onFolders: false
+        onFolders: false,
+        onHelp: false,
       }
     }
 
+    toggleHelp = () => {
+      this.setState({
+        onHelp: !this.state.onHelp
+      })
+    }
 
     toggleUpload = () => {
       this.setState({
@@ -55,56 +64,27 @@ class Dashboard extends React.Component {
       
 
     return (
-      <div className="container">
-        
-      <div className="row">
-
-      
-        
-        
-      <div className="col s12">
-        
-        
-        </div>
-      <div className="col s12 m6">
-      <h3>Click to Add Files</h3>
-        <FileUpload user={this.props.user}/></div>
-      <div className="col s12 m6">
-      <h3>Click to View Files</h3>
-        <img src={MyFiles} alt="Logo" width="50%" /></div>
-    </div>
-
-    </div>
-
-        
-     
 
 
-    //     {/* {
-    //     props.user &&
-    //     <div className="container"> */}
-    //       {/* <h2>{props.displayName }</h2>
-    //         <h2>{props.user.email}</h2>
-    //         <h2>{props.user.uid}</h2> */}
+      <div>
+                  <Grid item xs={12} md={12} lg={12}>
+                              
+                              <Typography align="center" variant="h3" style={{ padding: "20px"}}>Welcome {this.props.user.displayName}</Typography>
+                              
+                              </Grid>
+                
+                            <Grid item xs={12} md={6} lg={6}>
+                            <h3>Click to Add Files</h3>
+                        <FileUpload user={this.props.user}/>
+                            </Grid>
+                            <Grid item xs={12} md={6} lg={6}>
+                            <h3>Click to Retrieve Files</h3>
+                            
+                            <img src={MyFiles} alt="Logo" width="50%" />
+                            </Grid>
+                            </div>
 
-    //         {/* <Col xs={2} md={1} lg={1}>
-    //   <Image src={props.user.photoURL} roundedCircle />
-    // </Col> */}
 
-    //         {/* <FileUpload user={props.user}/>
-    //     </div> */}
-        
-    //     }
-    //     {
-    //       // !props.user &&
-    //       // <Redirect to="/" />
-    //     }
-            
-            
-  
-
-        
-      // </div>
     )
   }
 }

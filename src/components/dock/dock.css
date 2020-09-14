@@ -7,7 +7,7 @@
 
 .tableClass tr:first-child {
     border-top: none;
-    background: #428bca;
+    background: #407bff;
     color: #fff;
   }
 
@@ -15,6 +15,14 @@
     border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
   background-color: #f5f9fc;
+}
+
+.tableClass tr:nth-child(odd):not(:first-child) {
+  background-color: #ebf3f9;
+}
+
+.tableClass {
+  border-spacing: 2px;
 }
 
 .tableClass th{
@@ -91,50 +99,26 @@
     }
   }
   
-  
-  /* THE END OF THE IMPORTANT STUFF */
-  
-  /* Basic Styling */
-  /* h1 {
-    text-align: center;
-    font-size: 2.4em;
-    color: #f2f2f2;
-  }
-  .container {
+  .dock-container {
     display: block;
     text-align: center;
   }
-  h3 {
-    display: inline-block;
-    position: relative;
+
+  .download:link, .download:visited {
+    background-color: #407bff;
+    color: white;
+    padding: 14px 25px;
     text-align: center;
-    font-size: 1.5em;
-    color: #cecece;
+    text-decoration: none;
+    display: inline-block;
   }
-  h3:before {
-    content: "\25C0";
-    position: absolute;
-    left: -50px;
-    -webkit-animation: leftRight 2s linear infinite;
-    animation: leftRight 2s linear infinite;
-  }
-  h3:after {
-    content: "\25b6";
-    position: absolute;
-    right: -50px;
-    -webkit-animation: leftRight 2s linear infinite reverse;
-    animation: leftRight 2s linear infinite reverse;
-  } */
-  /* @-webkit-keyframes leftRight {
-    0%    { -webkit-transform: translateX(0)}
-    25%   { -webkit-transform: translateX(-10px)}
-    75%   { -webkit-transform: translateX(10px)}
-    100%  { -webkit-transform: translateX(0)}
-  }
-  @keyframes leftRight {
-    0%    { transform: translateX(0)}
-    25%   { transform: translateX(-10px)}
-    75%   { transform: translateX(10px)}
-    100%  { transform: translateX(0)}
-  } */
   
+  .download:hover, .download:active {
+    background-color: #407bff;
+  }
+
+  /* @media only screen and (max-width: 540px) {
+    
+  } */
+
+

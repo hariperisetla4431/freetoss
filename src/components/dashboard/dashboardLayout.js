@@ -24,7 +24,7 @@ import { withRouter } from 'react-router-dom';
 
 import MyFiles from '../../img/my-files-01.png'
 import FreeTossLogo from '../../img/freetoss logo.svg';
-import FreeTossLogoHorizontal from '../../img/Free Toss 8 Logo Horizontal.svg';
+import FreeTossLogoHorizontal from '../../img/logoh.svg';
 import AvatarPopUp from '../../components/navbar/avatarpopup';
 
 import AccountList from './listItems';
@@ -49,8 +49,8 @@ import { createMuiTheme, responsiveFontSizes, ThemeProvider } from '@material-ui
 
 import PersonIcon from '@material-ui/icons/Person';
 
-
-
+import Test from '../home/Test'
+import Documents from '../documents';
 
 function Copyright() {
   return (
@@ -151,6 +151,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
+
+
  function DashboardLayout(props) {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
@@ -162,7 +165,18 @@ const useStyles = makeStyles((theme) => ({
   };
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
-  
+  let page;
+  if(props.page === 'help'){
+    page = <Test />;             
+  }
+  else if(props.page === 'documents'){
+    page = <Documents />;
+  }
+
+  else{
+    page = <Dashboard user={props.user} signout={props.signout} test={props.test} />;
+
+  }
 
   let theme = createMuiTheme();
 theme = responsiveFontSizes(theme);
@@ -183,9 +197,6 @@ theme = responsiveFontSizes(theme);
           >
             <MenuIcon style={{ color: "black" }} />
           </IconButton>
-        
-       
-      
 
           <Typography component="h1" variant="h6" style={{color: "black"}} noWrap className={classes.title}>
             Dashboard
@@ -232,21 +243,26 @@ theme = responsiveFontSizes(theme);
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
-              <Grid item xs={12} md={12} lg={12}>
-                  
-              <Typography align="center" variant="h3" style={{ padding: "20px"}}>Welcome {props.user.displayName}</Typography>
               
-              </Grid>
-
-            <Grid item xs={12} md={6} lg={6}>
-            <h3>Click to Add Files</h3>
-        <FileUpload user={props.user}/>
-            </Grid>
-            <Grid item xs={12} md={6} lg={6}>
-            <h3>Click to Retrieve Files</h3>
+              {/* {
+                props.page === 'help' ? <Test /> :
+                
+                <Dashboard user={props.user} signout={props.signout} test={props.test} />
+                
+              }
+               
+              {
+                props.page === 'documents' ? <Documents /> :
+                <Dashboard user={props.user} signout={props.signout} test={props.test} />
+              } */}
             
-            <img src={MyFiles} alt="Logo" width="50%" />
-            </Grid>
+
+            {page}
+
+            
+                          
+                                      
+
               {/* <Grid item xs={12} md={8} lg={9}>
                   
                       <Dashboard user={props.user} signout={props.signout} />

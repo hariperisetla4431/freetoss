@@ -24,24 +24,22 @@ class SignInLayout extends React.Component {
 
   resetPassword = (e) => {
     var auth = firebase.auth();
-var emailAddress = "user@example.com";
+    var emailAddress = "user@example.com";
 
-auth.sendPasswordResetEmail(emailAddress).then(function() {
-  // Email sent.
-}).catch(function(error) {
-  // An error happened.
-});
+    auth.sendPasswordResetEmail(emailAddress).then(function() {
+    // Email sent.
+    }).catch(function(error) {
+    // An error happened.
+    });
   }
   
   signInUser = (e) => {
 
-
     e.preventDefault();
-
     firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((result) => {
       const user = result.user;
 
-      if(user.emailVerified == false){
+      if(user.emailVerified === false){
         alert("Your are not a verified user. Please verify your email to continue!")
         
       }
@@ -53,12 +51,10 @@ auth.sendPasswordResetEmail(emailAddress).then(function() {
       // Handle Errors here.
       var errorCode = error.code;
       var errorMessage = error.message;
-      alert(errorMessage);
+      alert(errorCode + " : " + errorMessage);
       // ...
     });
 }
-
-
 
   handleClick(e) {
     e.preventDefault();
@@ -70,18 +66,6 @@ auth.sendPasswordResetEmail(emailAddress).then(function() {
     this.props.history.push('/password-reset');
   }
 
-  //   signIn = (e) => {
-  //     e.preventDefault();
-
-  //   firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((u) => {
-  //   }).catch(function(error) {
-  //     // Handle Errors here.
-  //     var errorCode = error.code;
-  //     var errorMessage = error.message;
-  //     // ...
-  //   });
-  // }
-
   handleChange(e) {
     this.setState({
        [e.target.name]: e.target.value
@@ -91,14 +75,10 @@ auth.sendPasswordResetEmail(emailAddress).then(function() {
 
   render() {
     return (
-
       <SignIn signInGoogle={this.props.signInGoogle} handleChange={this.handleChange} handleClick={this.handleClick} handleResetPassword={this.handleResetPassword} signInUser={this.signInUser} />
-
-        );
-    }
-    }
-    
-
+    );
+  }
+}
 
 export default withRouter(SignInLayout);
 
