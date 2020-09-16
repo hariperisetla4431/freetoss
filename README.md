@@ -2,6 +2,10 @@
 
 Freetoss is an interactive and user-friendly app developed using [React JS](https://reactjs.org/) and [Firebase](https://firebase.google.com/). The app caters to the needs of students as a place to <b>store</b>, <b>retrieve</b>, and <b>edit</b> their documents. We have also included the feature to build a personalized CV/Resume for the user. The app is built upon the idea to give back to the student community that has helped us to grow.
 
+## Use the App
+
+Live Application: [FreeToss8](https://freetoss8.web.app/).
+
 ## Prerequisites
 
 To work on this project [Node JS](https://nodejs.org/) is a prerequisite.
