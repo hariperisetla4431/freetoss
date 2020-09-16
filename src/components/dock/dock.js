@@ -4,6 +4,7 @@ import firebase from '../../services/firebase';
 import "./dock.css";
 import VisibilityIcon from '@material-ui/icons/Visibility';
 import Button from '@material-ui/core/Button';
+import { useScrollTrigger } from '@material-ui/core';
 
 class Dock extends React.Component {
 
@@ -16,16 +17,39 @@ class Dock extends React.Component {
       user: '',
     email: '',
     password: '',
-    username: ''      
+    username: null      
     } 
 }
 
 
 
   componentDidMount() {
-     
+
+
+    firebase.firestore().collection("users/").doc(`/${this.props.match.params.id}`).get().then(doc => {
+      this.setState({
+        username: doc.data().username
+      })
+    })
+    // firebase.firestore().collection("users/").doc(this.props.match.params.id)
+    // .get().then( snapshot => {
+
+    //   const usernames = []
+    //   snapshot.forEach(doc => {
+    //     const data = doc.data()
+    //     usernames.push(data)
+    //   })
+      // doc.data().username
+      // console.log(doc.data().username)
     
-this.handleUsername()
+        // this.setState({
+        //   user: doc.data().username
+        // });
+        // this.setState({
+        //   username: usernames
+        // })
+    // })
+// this.handleUsername()
     
 
     // const storageRef = firebase.storage().ref(`${this.props.match.params.id}/profile`);
@@ -48,19 +72,19 @@ this.handleUsername()
         })
       })
 
-      firebase.auth().onAuthStateChanged((user) => {
+    //   firebase.auth().onAuthStateChanged((user) => {
     
-        // User is signed in.
-        this.setState({
-          user: {
-            // photoURL: user.photoURL,
-            // email: user.email,
-            // displayName: user.displayName,
-            displayImage: user.displayImage,
-            uid: user.uid,
-          } 
-        })
-    });
+    //     // User is signed in.
+    //     this.setState({
+    //       user: {
+    //         // photoURL: user.photoURL,
+    //         // email: user.email,
+    //         // displayName: user.displayName,
+    //         // displayImage: user.displayImage,
+    //         // uid: user.uid,
+    //       } 
+    //     })
+    // });
           
 
               
@@ -127,18 +151,9 @@ this.handleUsername()
 
 
 handleUsername = () => {
-  firebase.firestore().collection("users/").doc(this.props.match.params.id)
-    .onSnapshot((doc) => {
+  
 
-      this.setState({
-        user: doc.data().username
-      })
-      // console.log(doc.data().username)
     
-        // this.setState({
-        //   user: doc.data().username
-        // });
-    })
 }
 
  showTable = () => {
@@ -209,16 +224,6 @@ return jsx
     
     }
 
- 
-   
-  //  handleFolderOpen = () => {
-
-   
-
-
-
-  //  }
-  
     
     render(){
 
@@ -233,7 +238,7 @@ return jsx
                 {/* <h3 className="dock-uid">{match.params.id}</h3> */}
                 {/* <h1>{this.props.location.pathname}</h1> */}
                 {/* <h2 >{this.state.user.displayName}</h2> */}
-        <h2 >{this.state.user}</h2>
+        <h2 >{this.state.username}</h2>
             <div>
     <br />
 

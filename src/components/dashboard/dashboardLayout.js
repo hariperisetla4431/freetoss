@@ -19,7 +19,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems, secondaryListItems } from './listItems';
-
+import Profile from '../profile/profile';
 import { Link as LinkRouter ,withRouter } from 'react-router-dom';
 
 import MyFiles from '../../img/download.svg'
@@ -74,7 +74,7 @@ function Copyright() {
     <a href="https://madewithlove.org.in" className="madeWithLove" style={{ 
       fontSize: '1em',
     color: '#000', }} target="_blank">Made with <span style={{color: '#e74c3c',
-    
+      fontSize: '1.2em'
      }}>&hearts;</span> in India</a>
     </div>
   );
@@ -181,7 +181,10 @@ const useStyles = makeStyles((theme) => ({
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
   let page;
-  if(props.page === 'upload'){ 
+  if(props.page === 'profile'){ 
+    page = <Profile user={props.user} signout={props.signout}/>;           
+  }
+  else if(props.page === 'upload'){ 
     page = <Upload user={props.user} signout={props.signout}/>;           
   }
   else if(props.page === 'dock-upload'){ 
@@ -269,7 +272,7 @@ theme = responsiveFontSizes(theme);
         </div>
         {/* <ListSubheader inset>Account</ListSubheader> */}
         <Divider />
-    <ListItem button>
+    <ListItem button component={LinkRouter} to="/profile">
       <ListItemIcon>
         <PersonIcon />
       </ListItemIcon>

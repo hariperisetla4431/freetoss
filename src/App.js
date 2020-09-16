@@ -14,7 +14,6 @@ import OpenGraph from './components/opengraph';
 
 // props is data in a component that does NOT change
 // state is data in a component that does change
-import Test from './components/help&feedback/help';
 
 // error 404 - page not found
 const NoMatch = ({ location }) => (
@@ -117,6 +116,9 @@ class App extends React.Component {
                                                                         signInGoogle = {this.signInUserGoogle} />} />
 
             {/* dashboard path */}
+            
+            <Route path="/profile" component={() => <Home user = {this.state.user} signout={this.signOutUser} page = 'profile' />} />
+
             <Route path="/dashboard" component={() => <Home user = {this.state.user} signout={this.signOutUser} page = 'dashboard' />} />
 
             <Route path="/upload" component={() => <Home user = {this.state.user} signout={this.signOutUser} page = 'upload' />} />

@@ -113,26 +113,6 @@ class Retrieve extends React.Component {
 }
 
 
-
-    deleting = (event) => {
-
-        let uid = this.props.user.uid;
-        let folder = this.props.page;
-        let name = event.target.name;
-
-        const storageRef = firebase.storage().ref();
-
-        console.log(uid +'/' + folder + '/' + name)
-        const dele = storageRef.child(uid +'/' + folder + '/' + name);
-
-        // Delete the file
-        dele.delete().then(function() {
-          // File deleted successfully
-        }).catch(function(error) {
-          // Uh-oh, an error occurred!
-        });
-    }
-
    viewFile = () => {
 return <ViewFile
             alt="Here is the caption"
@@ -200,6 +180,8 @@ let jsx = (
 
         // Delete the file
         dele.delete().then(function() {
+         
+          alert('File deleted successfully. Please reload the page to view the changes.');
           // File deleted successfully
         }).catch(function(error) {
           // Uh-oh, an error occurred!

@@ -1,9 +1,8 @@
 import React from 'react';
 // import "./signup2.css";
 // import {Button } from 'react-bootstrap';
-import firebase, { db, auth } from '../../services/firebase';
-import Authenticate from '../../services/authenticate';
-import { Link, withRouter, Redirect } from 'react-router-dom';
+import firebase from '../../services/firebase';
+import { withRouter, Redirect } from 'react-router-dom';
 import SignUp from './SignUp';
 
 class SignUpLayout extends React.Component {

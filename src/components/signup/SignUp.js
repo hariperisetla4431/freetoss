@@ -53,7 +53,7 @@ function Copyright() {
     <a href="https://madewithlove.org.in" className="madeWithLove" style={{ 
       fontSize: '1em',
     color: '#000', }} target="_blank">Made with <span style={{color: '#e74c3c',
-    
+    fontSize: '1.2em'
      }}>&hearts;</span> in India</a>
     </div>
   );

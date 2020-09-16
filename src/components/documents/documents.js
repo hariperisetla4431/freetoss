@@ -8,7 +8,7 @@ import PictureAsPdfIcon from '@material-ui/icons/PictureAsPdf';
 import DescriptionIcon from '@material-ui/icons/Description';
 import AppsIcon from '@material-ui/icons/Apps';
 import AccountBoxIcon from '@material-ui/icons/AccountBox';
-
+import DockIcon from '@material-ui/icons/Dock';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
@@ -79,10 +79,10 @@ function Documents(props) {
         variant="contained"
         color="primary"
         style={{ margin: '15px', background: '#407bff' }}
-        startIcon={<AccountBoxIcon />}
+        startIcon={<DockIcon />}
         component="span"
         >
-          Profile
+          Dock
         </Button>
         </Link>
     
