@@ -1,0 +1,124 @@
+.tableClass {
+    margin: auto;
+  min-width: 300px;
+  max-width: 100%;
+  border-collapse: collapse;
+}
+
+.tableClass tr:first-child {
+    border-top: none;
+    background: #407bff;
+    color: #fff;
+  }
+
+.tableClass tr{
+    border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  background-color: #f5f9fc;
+}
+
+.tableClass tr:nth-child(odd):not(:first-child) {
+  background-color: #ebf3f9;
+}
+
+.tableClass {
+  border-spacing: 2px;
+}
+
+.tableClass th{
+    display: none;
+}
+
+.tableClass td{
+    display: block;
+}
+
+.tableClass td:first-child {
+    margin-top: .5em;
+  }
+  
+  .tableClass td:last-child {
+    margin-bottom: .5em;
+  }
+  
+  .tableClass td:before {
+    content: attr(data-th) ": ";
+    font-weight: bold;
+    width: 120px;
+    display: inline-block;
+    color: #000;
+  }
+  
+  .tableClass th,
+  .tableClass td {
+    text-align: left;
+  }
+  
+  .tableClass {
+    color: #333;
+    border-radius: .4em;
+    overflow: hidden;
+  }
+  
+  .tableClass tr {
+    border-color: #bfbfbf;
+  }
+  
+  .tableClass th,
+  .tableClass td {
+    padding: .5em 1em;
+  }
+  @media screen and (max-width: 601px) {
+    .tableClass tr:nth-child(2) {
+      border-top: none;
+    }
+  }
+  @media screen and (min-width: 600px) {
+    .tableClass tr:hover:not(:first-child) {
+      background-color: #d8e7f3;
+    }
+    .tableClass td:before {
+      display: none;
+    }
+    .tableClass th,
+    .tableClass td {
+      display: table-cell;
+      padding: .25em .5em;
+    }
+    .tableClass th:first-child,
+    .tableClass td:first-child {
+      padding-left: 0;
+    }
+    .tableClass th:last-child,
+    .tableClass td:last-child {
+      padding-right: 0;
+    }
+    .tableClass th,
+    .tableClass td {
+      padding: 1em !important;
+    }
+  }
+  
+  .dock-container {
+    display: block;
+    text-align: center;
+  }
+
+  .download:link, .download:visited {
+    background-color: #407bff;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  .download:hover, .download:active {
+    background-color: #407bff;
+  }
+
+  /* @media only screen and (max-width: 540px) {
+    
+  } */
+
+

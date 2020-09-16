@@ -2,7 +2,7 @@ import React from 'react';
 import DashboardLayout from '../dashboard/dashboardLayout';
 import history from '../../services/history';
 import { useHistory, withRouter } from 'react-router-dom';
-import Test from './Test';
+import Help from '../help&feedback/help';
 // import NavBar from '../navbar/navBar';
 // import SideBar from '../navbar/sideBar';
 // import 'materialize-css/dist/css/materialize.min.css'

@@ -1,17 +1,15 @@
 import React from 'react';
-import {NavLink, Redirect} from 'react-router-dom';
-// import { Button, Row, Col, Container, Card, Form } from 'react-bootstrap';
-import FileUpload from '../fileupload/fileupload';
-import "./dashboard.css";
-// import FileRetrieval from '../fileRetrive/fileRetrieval';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCheckSquare, faFolderPlus } from '@fortawesome/fontawesome-free-solid'
-// import 'materialize-css/dist/css/materialize.min.css'
-import MyFiles from '../../img/my-files-01.png'
-
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 
+import firebase, {storageRef } from '../../services/firebase';
+import { FormControl } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
+import { IconButton, Input } from '@material-ui/core';
+import Download from '../../img/download.svg';
+import Upload from '../../img/upload.svg';
+
+import {Link} from 'react-router-dom';
 
 
 class Dashboard extends React.Component {
@@ -66,23 +64,34 @@ class Dashboard extends React.Component {
     return (
 
 
-      <div>
+     
+        <Grid container spacing={3}>
                   <Grid item xs={12} md={12} lg={12}>
-                              
-                              <Typography align="center" variant="h3" style={{ padding: "20px"}}>Welcome {this.props.user.displayName}</Typography>
-                              
-                              </Grid>
+                    <Typography align="center" variant="h3" style={{ padding: "20px"}}>Welcome {this.props.user.displayName}</Typography>
+                      <img src={this.props.user.displayImage} />
+                  </Grid>
                 
-                            <Grid item xs={12} md={6} lg={6}>
-                            <h3>Click to Add Files</h3>
-                        <FileUpload user={this.props.user}/>
-                            </Grid>
-                            <Grid item xs={12} md={6} lg={6}>
-                            <h3>Click to Retrieve Files</h3>
+                  <Grid item xs={12} md={6} lg={6}>
+                      <h3>Click to Add Files</h3>
+                      <IconButton color="primary" aria-label="upload picture" component="span"  >
+        <Link to="/upload">
+        {/* <Icon color="primary" style={{ fontSize: 300 }}>add_circle</Icon> */}
+        <img src={Upload} alt="myfile" width="100%" style={{ width: "192px" }} />
+        </ Link>
+        </IconButton>
+                  </Grid>
                             
-                            <img src={MyFiles} alt="Logo" width="50%" />
-                            </Grid>
-                            </div>
+                  <Grid item xs={12} md={6} lg={6}>
+                    <h3>Click to Retrieve Files</h3>
+                    <IconButton color="primary" aria-label="upload picture" component="span" >
+                      <Link to="/documents">
+                        <img src={Download} alt="myfile" width="100%" style={{ width: "192px" }} />
+                      </Link>
+                    </IconButton>                
+                    
+                  </Grid>
+                </Grid>
+                           
 
 
     )

@@ -14,7 +14,7 @@ import OpenGraph from './components/opengraph';
 
 // props is data in a component that does NOT change
 // state is data in a component that does change
-import Test from './components/home/Test';
+import Test from './components/help&feedback/help';
 
 // error 404 - page not found
 const NoMatch = ({ location }) => (
@@ -116,12 +116,30 @@ class App extends React.Component {
                                                                         signout={this.signOutUser} 
                                                                         signInGoogle = {this.signInUserGoogle} />} />
 
-                     {/* dashboard path */}
-            <Route path="/dashboard" component={() => <Home user = {this.state.user} signout={this.signOutUser}/>} />
+            {/* dashboard path */}
+            <Route path="/dashboard" component={() => <Home user = {this.state.user} signout={this.signOutUser} page = 'dashboard' />} />
 
-            <Route path="/help&feedback" component={() => <Home toggleHelp = {this.toggleHelp} user = {this.state.user} signout={this.signOutUser} page = 'help' />} />
+            <Route path="/upload" component={() => <Home user = {this.state.user} signout={this.signOutUser} page = 'upload' />} />
 
-            <Route path="/documents" component={() => <Home toggleHelp = {this.toggleHelp} user = {this.state.user} signout={this.signOutUser} page = 'documents' />} />
+            <Route path="/dock-upload" component={() => <Home user = {this.state.user} signout={this.signOutUser} page = 'dock-upload' />} />
+
+            <Route path="/documents" component={() => <Home user = {this.state.user} signout={this.signOutUser} page = 'my documents' />} />
+
+            <Route path="/documents-image" component={() => <Home user = {this.state.user} signout={this.signOutUser} page = 'image' />} />
+
+            <Route path="/documents-pdf" component={() => <Home user = {this.state.user} signout={this.signOutUser} page = 'pdf' />} />
+
+            <Route path="/documents-word" component={() => <Home user = {this.state.user} signout={this.signOutUser} page = 'word'/>} />
+            
+            <Route path="/documents-other" component={() => <Home user = {this.state.user} signout={this.signOutUser} page = 'other'/>} />
+            
+            <Route path="/documents-dock" component={() => <Home user = {this.state.user} signout={this.signOutUser} page = 'dock-user' comp='retrieve' />} />            
+
+            <Route path="/share" component={() => <Home user = {this.state.user} signout={this.signOutUser} page = 'share' />} />
+
+            <Route path="/privacy" component={() => <Home user = {this.state.user} signout={this.signOutUser} page = 'privacy' />} />
+
+            <Route path="/help&feedback" component={() => <Home user = {this.state.user} signout={this.signOutUser} page = 'help & feedback' />} />
 
             {/* dock path */}
             <Route path="/:id/dock" component={Dock} />

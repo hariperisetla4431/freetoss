@@ -2,6 +2,8 @@ import React from 'react';
 import firebase from '../../services/firebase';
 // import 'materialize-css/dist/css/materialize.min.css'
 import "./dock.css";
+import VisibilityIcon from '@material-ui/icons/Visibility';
+import Button from '@material-ui/core/Button';
 
 class Dock extends React.Component {
 
@@ -11,9 +13,10 @@ class Dock extends React.Component {
     this.state = {
       itemList: [""],
       download: [""],
-      user: `${this.props.match.params.id}`,
+      user: '',
     email: '',
-    password: ''      
+    password: '',
+    username: ''      
     } 
 }
 
@@ -22,10 +25,12 @@ class Dock extends React.Component {
   componentDidMount() {
      
     
+this.handleUsername()
+    
 
     // const storageRef = firebase.storage().ref(`${this.props.match.params.id}/profile`);
     
-    const storageRef = firebase.storage().ref(`${this.props.match.params.id}/profile`);
+    const storageRef = firebase.storage().ref(`${this.props.match.params.id}/dock`);
 
       storageRef.listAll().then( res => {
 
@@ -50,7 +55,7 @@ class Dock extends React.Component {
           user: {
             // photoURL: user.photoURL,
             // email: user.email,
-            displayName: user.displayName,
+            // displayName: user.displayName,
             displayImage: user.displayImage,
             uid: user.uid,
           } 
@@ -121,7 +126,20 @@ class Dock extends React.Component {
 }
 
 
+handleUsername = () => {
+  firebase.firestore().collection("users/").doc(this.props.match.params.id)
+    .onSnapshot((doc) => {
 
+      this.setState({
+        user: doc.data().username
+      })
+      // console.log(doc.data().username)
+    
+        // this.setState({
+        //   user: doc.data().username
+        // });
+    })
+}
 
  showTable = () => {
   
@@ -131,10 +149,25 @@ let jsx = (
   <tr key={index}>
     <td data-th="Sl. No">{index+1}</td>
     <td data-th="Name">{ele.name}</td>
-    <td data-th="URL"><a className="download" href={this.state.download[index]} target="_blank">View</a></td>
-    {/* <td><a href={this.state.download[index]} target="_blank">{ele.name}</a></td> */}
-    {/* <td><a href={this.state.download[index]} target="_blank">{this.state.download[index]}</a></td> */}
-  </tr>
+    {/* <td data-th="URL"><a className="download" href={this.state.download[index]} target="_blank">View</a></td> */}
+    <td data-th="URL">
+    <Button
+        size="large"
+        variant="contained"
+        color="primary"
+        style={{ margin: '2', background: '#407bff' }}
+        startIcon={<VisibilityIcon />}
+        component="span"
+        onClick={() => {
+          // window.location = this.state.download[index]
+          window.open(this.state.download[index], '_blank')
+        }}
+        target="_blank"
+        >
+          View
+        </Button>
+        </td>
+    </tr>
 )
 // console.log(jsx);
 return jsx
@@ -197,9 +230,10 @@ return jsx
             <div className="dock-container">
                 <h1 className="dock-title">FreeToss Dock</h1>
                 {/* <Link to={location.pathname}>Open</Link> */}
-                <h3 className="dock-uid">{match.params.id}</h3>
+                {/* <h3 className="dock-uid">{match.params.id}</h3> */}
                 {/* <h1>{this.props.location.pathname}</h1> */}
-                <h2 >{this.state.user.displayName}</h2>
+                {/* <h2 >{this.state.user.displayName}</h2> */}
+        <h2 >{this.state.user}</h2>
             <div>
     <br />
 

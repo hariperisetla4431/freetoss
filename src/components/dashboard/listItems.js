@@ -10,6 +10,11 @@ import HelpIcon from '@material-ui/icons/Help';
 import LayersIcon from '@material-ui/icons/Layers';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import LanguageIcon from '@material-ui/icons/Language';
+import CloudUploadIcon from '@material-ui/icons/CloudUpload';
+import FolderIcon from '@material-ui/icons/Folder';
+import DockIcon from '@material-ui/icons/Dock';
+import LockIcon from '@material-ui/icons/Lock';
+
 import {Link} from 'react-router-dom'
 
 // export const accountListItems = (
@@ -44,13 +49,25 @@ export const mainListItems = (
       </ListItemIcon>
       <ListItemText primary="Home" />
     </ListItem>
+    <ListItem button component={Link} to="/upload">
+      <ListItemIcon>
+        <CloudUploadIcon />
+      </ListItemIcon>
+      <ListItemText primary="Upload" />
+    </ListItem>
+    <ListItem button component={Link} to="/dock-upload">
+      <ListItemIcon>
+        <DockIcon />
+      </ListItemIcon>
+      <ListItemText primary="Dock Upload" />
+    </ListItem>
     <ListItem button component={Link} to="/documents">
       <ListItemIcon>
-        <DescriptionIcon />
+        <FolderIcon />
       </ListItemIcon>
       <ListItemText primary="My Documents" />
     </ListItem>
-    <ListItem button component={Link} to="/resume">
+    {/* <ListItem button component={Link} to="/resume">
       <ListItemIcon>
         <DescriptionIcon />
       </ListItemIcon>
@@ -61,12 +78,18 @@ export const mainListItems = (
         <LanguageIcon />
       </ListItemIcon>
       <ListItemText primary="Web Resume" />
-    </ListItem>
+    </ListItem> */}
     <ListItem button component={Link} to="/share">
       <ListItemIcon>
         <ShareIcon />
       </ListItemIcon>
       <ListItemText primary="Share" />
+    </ListItem>
+    <ListItem button component={Link} to="/privacy">
+      <ListItemIcon>
+        <LockIcon />
+      </ListItemIcon>
+      <ListItemText primary="Privacy" />
     </ListItem>
     <ListItem button component={Link} to="/help&feedback">
       <ListItemIcon>

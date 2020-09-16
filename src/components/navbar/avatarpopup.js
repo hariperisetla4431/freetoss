@@ -35,14 +35,17 @@ export default function SimpleMenu(props) {
       width: theme.spacing(5),
       height: theme.spacing(5),
     },
+    extra: {
+      width: theme.spacing(7),
+      height: theme.spacing(7)
+    }
   }));
   const classes = useStyles();
 
   return (
     <div>
       {/* <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}> */}
-      <Avatar alt={props.user.displayName} color="primary" src={props.user.displayImage} className={classes.large} onClick={handleClick}/>
-
+      <Avatar alt={props.user.displayName} color="primary" src={props.user.photoURL} className={classes.large} onClick={handleClick}/>
       {/* </Button> */}
       <Menu
         id="simple-menu"
@@ -51,8 +54,8 @@ export default function SimpleMenu(props) {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
+        {/* <MenuItem onClick={handleClose}>Profile</MenuItem>
+        <MenuItem onClick={handleClose}>My account</MenuItem> */}
         <MenuItem onClick={props.signout}>Logout</MenuItem>
       </Menu>
     </div>

@@ -14,6 +14,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Divider from '@material-ui/core/Divider';
 import SignUpImg from '../../img/signup.png';
+import Logo from '../../img/logoh.svg'
 
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
@@ -39,12 +40,22 @@ import './SignUp.css'
 
 function Copyright() {
   return (
-    <Typography variant="body2" color="textSecondary" align="center">
+    <div>
+      <Typography variant="body2" style={{ color: '#000', fontSize: '1em' }} align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://freetoss8.web.app/">
+      <Link color="inherit" target="_blank" href="https://freetoss8.web.app/">
         FreeToss8
-      </Link>{' 2020'}
+        
+      </Link>{' 2020 '}
+      
+
     </Typography>
+    <a href="https://madewithlove.org.in" className="madeWithLove" style={{ 
+      fontSize: '1em',
+    color: '#000', }} target="_blank">Made with <span style={{color: '#e74c3c',
+    
+     }}>&hearts;</span> in India</a>
+    </div>
   );
 }
 
@@ -165,9 +176,10 @@ export default function SignUpSide(props) {
       <Grid item xs={false} sm={4} md={7} className={classes.image} />
       <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
         <div className={classes.paper}>
-          <Avatar className={classes.avatar}>
-            <LockOutlinedIcon />
-          </Avatar>
+          {/* <Avatar className={classes.avatar}> */}
+            {/* <LockOutlinedIcon /> */}
+            <img src={Logo} alt="myfile" width="100%" style={{ width: "300px", padding: '20px' }} />
+          {/* </Avatar> */}
           <Typography component="h1" variant="h5">
             Sign Up
           </Typography>
@@ -350,7 +362,11 @@ export default function SignUpSide(props) {
 </Button>
               </Grid>
             </Grid>
-
+            <Grid container>
+              <Grid item xs align='center' style={{ padding: '10px' }}>
+                <Link href="https://github.com/hariperisetla4431/Freetoss" target="_blank" variant="h5">Why FreeToss8?</Link> 
+              </Grid>
+            </Grid>
             <Box mt={5}>
               <Copyright />
             </Box>

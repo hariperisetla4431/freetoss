@@ -7,9 +7,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ReactDOM from 'react-dom';
 import { IconButton, Input } from '@material-ui/core';
 import Icon from '@material-ui/core/Icon';
-import {Link} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 import Upload from '../../img/upload.svg';
-import UploadForm from './uploadForm';
+import UploadForm from './dockUploadForm';
 
 import DeleteIcon from '@material-ui/icons/Delete';
 import Button from '@material-ui/core/Button';
@@ -17,12 +17,12 @@ import { makeStyles } from '@material-ui/core/styles';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import KeyboardVoiceIcon from '@material-ui/icons/KeyboardVoice';
 import SaveIcon from '@material-ui/icons/Save';
-import {withRouter} from 'react-router-dom'
-import {DropzoneArea} from 'material-ui-dropzone'
 import firebase from '../../services/firebase';
 
 
-class FileUpload extends Component {
+import {DropzoneArea} from 'material-ui-dropzone'
+
+class DockUpload extends Component {
 
   constructor(props) {
     super(props);
@@ -46,15 +46,16 @@ class FileUpload extends Component {
     };
   }
 
-  componentDidMount() {
-    
+//   componentDidMount() {
+//   M.AutoInit();
+// }
+componentDidMount() {
     firebase.firestore().collection('users/').doc(this.props.user.uid).set({
-      username: this.props.user.displayName,
-      
-  })
-  console.log('added name')
-}
+        username: this.props.user.displayName,
 
+    })
+    console.log('added name')
+}
 
   toggleUploadDetails = () => {
 
@@ -103,36 +104,7 @@ class FileUpload extends Component {
 
     const { image } = this.state;
 
-    var Extension = `${this.state.image.name}`.substring(`${this.state.image.name}`.lastIndexOf('.') + 1).toLowerCase();
-    
-    console.log(Extension);
-          if (Extension === "jpg" || Extension === "png" || Extension === "bmp" || Extension === "jpeg") {
-            console.log('image')
-              Extension = 'image'
-          }
-          else if (Extension === "pdf") {
-            console.log('pdf')
-              Extension = 'pdf'
-          }
-          else if (Extension === "doc" || Extension === "docx" || Extension === "docm" || Extension === "dot" || Extension === "dotm" || Extension === 'txt') {
-            console.log('word')
-              Extension = 'word'
-            }
-          else {
-            console.log('other')
-              Extension = 'other'
-          }
-    
-
-console.log('upload')
-
-
-
-if(Extension !== ''){
-
-console.log('inner ' + Extension)
-
-  const uploadTask = storage.ref(`/${this.props.user.uid}/` + Extension + `/${this.state.image.name}`).put(image);
+  const uploadTask = storage.ref(`/${this.props.user.uid}/` + 'dock' + `/${this.state.image.name}`).put(image);
     uploadTask.on(
       "state_changed",
       snapshot => {
@@ -149,7 +121,7 @@ console.log('inner ' + Extension)
       () => {
         // complete function ...
         storage
-          .ref(`${this.props.user.uid}/` + Extension)
+          .ref(`${this.props.user.uid}/` + 'dock')
           .child(image.name)
           .getDownloadURL()
           .then(url => {
@@ -157,7 +129,6 @@ console.log('inner ' + Extension)
           });
       }
     );
-    }
 
   };
   render() {
@@ -172,4 +143,4 @@ console.log('inner ' + Extension)
 
 
 
-export default withRouter(FileUpload);
+export default withRouter(DockUpload);
