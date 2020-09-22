@@ -182,6 +182,7 @@ let jsx = (
         dele.delete().then(function() {
          
           alert('File deleted successfully. Please reload the page to view the changes.');
+          
           // File deleted successfully
         }).catch(function(error) {
           // Uh-oh, an error occurred!

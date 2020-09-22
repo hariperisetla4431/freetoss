@@ -1,6 +1,4 @@
 import React from 'react';
-// import "./signup2.css";
-// import {Button } from 'react-bootstrap';
 import firebase from '../../services/firebase';
 import { withRouter, Redirect } from 'react-router-dom';
 import SignUp from './SignUp';

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import ResetPassword from './resetPassword';
 import {withRouter} from 'react-router-dom';
 import firebase, { db, auth } from '../../services/firebase';

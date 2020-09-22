@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom';
 import './App.css';
-import firebase, { db, auth } from './services/firebase';
+import firebase, { auth } from './services/firebase';
 import Home from './components/home/home';
 import SigninAuthenticate from './services/authenticate';
 import SignUpAuthenticate from './services/signupauthenticate';
@@ -14,6 +14,11 @@ import OpenGraph from './components/opengraph';
 
 // props is data in a component that does NOT change
 // state is data in a component that does change
+
+// var {registerObserver} = require('react-perf-devtool')
+
+// // Simple, no?
+// registerObserver()
 
 // error 404 - page not found
 const NoMatch = ({ location }) => (

@@ -4,7 +4,7 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Avatar from '@material-ui/core/Avatar';
 import { makeStyles } from '@material-ui/core/styles';
-
+import {Link} from 'react-router-dom'
 
 
 export default function SimpleMenu(props) {
@@ -54,8 +54,11 @@ export default function SimpleMenu(props) {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        {/* <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem> */}
+
+        <Link to="/profile" style={{ textDecoration: 'none' }} >
+        <MenuItem >Profile</MenuItem>
+        </Link>
+        {/* <MenuItem onClick={handleClose}>My account</MenuItem> */}
         <MenuItem onClick={props.signout}>Logout</MenuItem>
       </Menu>
     </div>

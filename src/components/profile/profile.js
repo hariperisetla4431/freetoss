@@ -27,7 +27,7 @@ updateUser = (e) => {
 
     e.preventDefault();
 
-    if(this.state.displayName != null){
+    if(this.state.displayName != ''){
 
     var user = firebase.auth().currentUser;
 
@@ -41,6 +41,9 @@ user.updateProfile({
 }).catch(function(error) {
   // An error happened.
 });
+    }
+    else{
+      alert('Text field is empty. Please enter your new display name.')
     }
 }
 

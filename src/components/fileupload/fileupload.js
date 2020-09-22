@@ -76,6 +76,11 @@ class FileUpload extends Component {
   }
   
   handleChange = e => {
+    var fileLimit = 30 * 1024 * 1024;
+
+    var size = e.target.files[0].size;
+
+    if(size <= fileLimit){
     if (e.target.files[0]) {
       const image = e.target.files[0];
       this.setState(() => ({ 
@@ -84,7 +89,10 @@ class FileUpload extends Component {
         
       }));
     }
-    
+  }
+  else {
+    alert('file size exceeded 30mb')
+  }
   };
 
   // handleChange(files){
@@ -102,6 +110,8 @@ class FileUpload extends Component {
   handleUpload = () => {
 
     const { image } = this.state;
+
+
 
     var Extension = `${this.state.image.name}`.substring(`${this.state.image.name}`.lastIndexOf('.') + 1).toLowerCase();
     
@@ -126,6 +136,10 @@ class FileUpload extends Component {
 
 console.log('upload')
 
+var fileLimit = 30 * 1024 * 1024;
+
+
+
 
 
 if(Extension !== ''){
@@ -145,7 +159,10 @@ console.log('inner ' + Extension)
       error => {
         // Error function ...
         console.log(error);
+        alert(error);
       },
+      
+      
       () => {
         // complete function ...
         storage

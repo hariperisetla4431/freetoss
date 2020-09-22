@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import "./SignIn.css";
 // import {Button, Row, Col } from 'react-bootstrap'
-import Dashboard from '../dashboard/dashboard';
-import {Link, Redirect, useHistory, withRouter} from 'react-router-dom';
-import firebase, { db, auth } from '../../services/firebase';
-import Authenticate from '../../services/authenticate';
-import Input from '../input_test';
+// import Dashboard from '../dashboard/dashboard';
+import {Redirect, withRouter} from 'react-router-dom';
+import firebase, {auth} from '../../services/firebase';
+// import Authenticate from '../../services/authenticate';
+
 import SignIn from './SignIn';
 
 class SignInLayout extends React.Component {
@@ -23,7 +23,7 @@ class SignInLayout extends React.Component {
   }
 
   resetPassword = (e) => {
-    var auth = firebase.auth();
+    // var auth = auth;
     var emailAddress = "user@example.com";
 
     auth.sendPasswordResetEmail(emailAddress).then(function() {
@@ -36,7 +36,7 @@ class SignInLayout extends React.Component {
   signInUser = (e) => {
 
     e.preventDefault();
-    firebase.auth().signInWithEmailAndPassword(this.state.email, this.state.password).then((result) => {
+    auth.signInWithEmailAndPassword(this.state.email, this.state.password).then((result) => {
       const user = result.user;
 
       if(user.emailVerified === false){

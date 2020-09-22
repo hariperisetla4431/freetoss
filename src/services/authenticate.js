@@ -1,7 +1,6 @@
 import React from 'react';
 import SignInLayout from '../components/signin/SignInLayout';
-import Home from '../components/home/home';
-import {Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 // import SignUp from '../components/signup/SignUpLayout';
 

@@ -29,7 +29,7 @@ export default function TermsAndConditions() {
       <h3>2. Copyright notice</h3>
 
       <p>
-      2.1 Copyright (c) [year(s) of first publication] [full name].
+      2.1 Copyright (c) 2020 FreeToss8.
       <br/></p>
 
       <p>
