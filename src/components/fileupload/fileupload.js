@@ -76,11 +76,6 @@ class FileUpload extends Component {
   }
   
   handleChange = e => {
-    var fileLimit = 30 * 1024 * 1024;
-
-    var size = e.target.files[0].size;
-
-    if(size <= fileLimit){
     if (e.target.files[0]) {
       const image = e.target.files[0];
       this.setState(() => ({ 
@@ -89,10 +84,6 @@ class FileUpload extends Component {
         
       }));
     }
-  }
-  else {
-    alert('file size exceeded 30mb')
-  }
   };
 
   // handleChange(files){
