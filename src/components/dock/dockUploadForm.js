@@ -76,7 +76,7 @@ export default function FormPropsTextFields(props) {
       </Button>
       </label>
 
-<h3 style={{ color: '#FF0000' }} >***Please note that any files uploaded in the dock are public and shareable. Please be sure to check before you upload***</h3>
+<h3 style={{ color: '#FF0000' }} >***Any file uploaded in the dock are public and can be viewed by anyone with your link !!!***</h3>
 
       <Grid container className="root" spacing={3}>
 
