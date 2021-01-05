@@ -65,4 +65,4 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduc
 <a href="https://github.com/ad-arsh99/" target="_blank"><img src="github/media/adarsh.png" width="10%"></a>
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/hariperisetla4431/testTeam/blob/master/LICENSE) file for details
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE) file for details
